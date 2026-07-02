@@ -1,0 +1,1263 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Somapuram Uday — Full-Stack Engineer. Frontend-core, Flask/Python backend, MERN stack, Tableau & data analytics. Final-year CSE at GPREC, Kurnool. Open to work.">
+  <meta name="keywords" content="Somapuram Uday, Full Stack Developer, React, Flask, Python, MERN, Tableau, Data Analytics, GPREC, Kurnool, Open Source, Frontend Engineer">
+  <meta name="author" content="Somapuram Uday">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://udaycodespace.github.io/">
+  <meta property="og:title" content="Somapuram Uday — Full-Stack Engineer">
+  <meta property="og:description" content="Builds interfaces. Wires APIs. Ships end to end.">
+  <meta property="twitter:card" content="summary_large_image">
+  <meta property="twitter:title" content="Somapuram Uday — Full-Stack Engineer">
+  <meta property="twitter:description" content="Frontend-core. Knows backend. Speaks data.">
+  <title>Somapuram Uday — Full-Stack Engineer</title>
+  <meta name="theme-color" content="#0a0a0a">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=JetBrains+Mono:wght@400;700;800&family=Barlow+Condensed:wght@400;600;700;900&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            'acid': '#CCFF00',
+            'neo-bg': '#F4EFE6',
+            'neo-black': '#0a0a0a',
+            'neo-red': '#FF2A2A',
+            'neo-blue': '#1A6DFF',
+            'neo-orange': '#FF6B00',
+            'neo-pink': '#FF3CAC',
+            'neo-teal': '#00E5CC',
+            'neo-purple': '#7C3AED',
+          },
+          fontFamily: {
+            'display': ['"Bebas Neue"', 'cursive'],
+            'condensed': ['"Barlow Condensed"', 'sans-serif'],
+            'mono': ['"JetBrains Mono"', 'monospace'],
+          },
+          boxShadow: {
+            'brutal': '5px 5px 0px 0px #0a0a0a',
+            'brutal-sm': '3px 3px 0px 0px #0a0a0a',
+            'brutal-lg': '8px 8px 0px 0px #0a0a0a',
+            'brutal-xl': '12px 12px 0px 0px #0a0a0a',
+            'brutal-acid': '5px 5px 0px 0px #CCFF00',
+            'brutal-red': '5px 5px 0px 0px #FF2A2A',
+            'brutal-blue': '5px 5px 0px 0px #1A6DFF',
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      cursor: none;
+      background-color: #F4EFE6;
+      background-image: radial-gradient(circle, rgba(10,10,10,0.12) 1px, transparent 1px);
+      background-size: 26px 26px;
+    }
+
+    #cursor {
+      pointer-events: none;
+      position: fixed;
+      z-index: 9999;
+      width: 18px; height: 18px;
+      background: #CCFF00;
+      border: 2px solid #0a0a0a;
+      transform: translate(-50%, -50%);
+      transition: width 0.12s, height 0.12s, background 0.12s, border-radius 0.12s;
+      mix-blend-mode: multiply;
+    }
+    #cursor.big { width: 52px; height: 52px; background: #0a0a0a; border-radius: 50%; }
+    #cursor.link { width: 40px; height: 40px; background: #FF2A2A; }
+
+    #progress-bar {
+      position: fixed; top: 0; left: 0;
+      height: 3px; background: #CCFF00;
+      border-right: 2px solid #0a0a0a;
+      z-index: 9998; width: 0%;
+    }
+
+    .reveal {
+      opacity: 0; transform: translateY(40px);
+      transition: opacity 0.55s cubic-bezier(0.25,1,0.5,1), transform 0.55s cubic-bezier(0.25,1,0.5,1);
+    }
+    .reveal.active { opacity: 1; transform: translateY(0); }
+
+    .marquee-wrap { overflow: hidden; white-space: nowrap; }
+    .marquee-track {
+      display: inline-flex; width: max-content;
+      animation: marquee 32s linear infinite;
+    }
+    .marquee-wrap:hover .marquee-track { animation-play-state: paused; }
+    @keyframes marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+
+    .marquee-rev { display: inline-flex; width: max-content; animation: marquee-rev 28s linear infinite; }
+    @keyframes marquee-rev { from { transform: translateX(-50%); } to { transform: translateX(0); } }
+
+    .skill-cell {
+      border-right: 2px solid rgba(255,255,255,0.12);
+      border-bottom: 2px solid rgba(255,255,255,0.12);
+      cursor: none;
+      transition: background 0s;
+    }
+
+    .glitch:hover { animation: glitch 0.22s infinite; color: #FF2A2A; }
+    @keyframes glitch {
+      0%  { transform: translate(0); }
+      25% { transform: translate(-2px, 1px); }
+      50% { transform: translate(2px, -1px); }
+      75% { transform: translate(-1px, 2px); }
+      100%{ transform: translate(0); }
+    }
+
+    .tag {
+      display: inline-block;
+      background: #0a0a0a; color: #F4EFE6;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.6rem; font-weight: 700;
+      padding: 2px 8px; border: 1px solid #0a0a0a;
+      letter-spacing: 0.04em;
+    }
+    .tag-acid { background: #CCFF00; color: #0a0a0a; border-color: #0a0a0a; }
+    .tag-blue { background: #1A6DFF; color: white; border-color: #0a0a0a; }
+
+    .exp-dot {
+      position: absolute; left: -11px; top: 12px;
+      width: 20px; height: 20px; border: 3px solid #0a0a0a;
+    }
+
+    nav a { transition: background 0.1s, color 0.1s; }
+    nav a:hover { background: #0a0a0a; color: #CCFF00; }
+
+    input, textarea {
+      background: white; border: 2px solid #0a0a0a;
+      padding: 10px 14px;
+      font-family: 'JetBrains Mono', monospace; font-size: 0.8rem;
+      width: 100%; outline: none;
+      transition: box-shadow 0.12s;
+    }
+    input:focus, textarea:focus { box-shadow: 4px 4px 0 #CCFF00; }
+
+    .btn-primary {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: #0a0a0a; color: #CCFF00;
+      font-family: 'JetBrains Mono', monospace;
+      font-weight: 700; font-size: 0.85rem;
+      padding: 14px 26px;
+      border: 2px solid #0a0a0a; box-shadow: 5px 5px 0 #CCFF00;
+      cursor: none; text-decoration: none;
+      transition: transform 0.1s, box-shadow 0.1s;
+    }
+    .btn-primary:hover { transform: translate(3px,3px); box-shadow: 2px 2px 0 #CCFF00; }
+
+    .btn-secondary {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: white; color: #0a0a0a;
+      font-family: 'JetBrains Mono', monospace;
+      font-weight: 700; font-size: 0.85rem;
+      padding: 14px 26px;
+      border: 2px solid #0a0a0a; box-shadow: 5px 5px 0 #0a0a0a;
+      cursor: none; text-decoration: none;
+      transition: transform 0.1s, box-shadow 0.1s;
+    }
+    .btn-secondary:hover { transform: translate(3px,3px); box-shadow: 2px 2px 0 #0a0a0a; }
+
+    .btn-ghost {
+      display: inline-flex; align-items: center; gap: 6px;
+      background: transparent; color: #0a0a0a;
+      font-family: 'JetBrains Mono', monospace;
+      font-weight: 700; font-size: 0.75rem;
+      padding: 8px 16px;
+      border: 2px solid #0a0a0a;
+      cursor: none; text-decoration: none;
+      transition: background 0.1s, color 0.1s;
+    }
+    .btn-ghost:hover { background: #0a0a0a; color: #CCFF00; }
+
+    .project-card {
+      transition: transform 0.12s, box-shadow 0.12s;
+      cursor: none;
+    }
+    .project-card:hover { transform: translate(-3px,-3px); box-shadow: 10px 10px 0 #0a0a0a; }
+
+    .os-card { transition: transform 0.12s, box-shadow 0.12s; cursor: none; }
+    .os-card:hover { transform: translate(-2px,-2px); box-shadow: 8px 8px 0 #0a0a0a; }
+
+    .section-label {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.65rem; font-weight: 700;
+      letter-spacing: 0.18em; text-transform: uppercase; color: #999;
+    }
+
+    .big-text { font-family: 'Bebas Neue', cursive; line-height: 0.88; }
+
+    .currently-pulse {
+      animation: pulse-dot 1.5s ease-in-out infinite;
+    }
+    @keyframes pulse-dot {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.5; transform: scale(1.4); }
+    }
+
+    .stat-number {
+      font-family: 'Bebas Neue', cursive;
+      line-height: 1;
+    }
+
+    ::-webkit-scrollbar { width: 5px; }
+    ::-webkit-scrollbar-track { background: #F4EFE6; }
+    ::-webkit-scrollbar-thumb { background: #0a0a0a; }
+
+    @media (max-width: 640px) {
+      body { cursor: auto; }
+      #cursor { display: none; }
+    }
+  </style>
+</head>
+<body class="text-neo-black font-condensed antialiased selection:bg-neo-black selection:text-acid">
+
+  <div id="cursor"></div>
+  <div id="progress-bar"></div>
+
+  <!-- ─── NAV ─── -->
+  <nav class="fixed top-0 w-full z-50 px-4 py-3 pointer-events-none">
+    <div class="max-w-7xl mx-auto flex justify-between items-center pointer-events-auto">
+      <a href="#" class="bg-neo-black text-acid font-mono font-black text-base px-4 py-1 border-2 border-neo-black shadow-brutal-sm hover:bg-acid hover:text-neo-black transition-colors cursor-none">UDAY.exe</a>
+      <div class="hidden md:flex gap-0 bg-neo-bg border-2 border-neo-black shadow-brutal">
+        <a href="#about"      class="px-3 py-2 font-mono text-xs font-bold border-r-2 border-neo-black cursor-none">/ABOUT</a>
+        <a href="#skills"     class="px-3 py-2 font-mono text-xs font-bold border-r-2 border-neo-black cursor-none">/STACK</a>
+        <a href="#experience" class="px-3 py-2 font-mono text-xs font-bold border-r-2 border-neo-black cursor-none">/LOGS</a>
+        <a href="#projects"   class="px-3 py-2 font-mono text-xs font-bold border-r-2 border-neo-black cursor-none">/WORK</a>
+        <a href="#opensource" class="px-3 py-2 font-mono text-xs font-bold border-r-2 border-neo-black cursor-none">/OPEN-SRC</a>
+        <a href="#community"  class="px-3 py-2 font-mono text-xs font-bold border-r-2 border-neo-black cursor-none">/COMMUNITY</a>
+        <a href="#contact"    class="px-3 py-2 font-mono text-xs font-bold bg-acid cursor-none">HIRE ME</a>
+      </div>
+      <button id="mob-btn" class="md:hidden bg-neo-black text-acid font-mono text-xs font-bold px-3 py-2 border-2 border-neo-black cursor-none">☰ MENU</button>
+    </div>
+    <div id="mob-menu" class="hidden md:hidden bg-neo-bg border-2 border-neo-black mt-2 mx-4 shadow-brutal pointer-events-auto">
+      <a href="#about"      class="block px-4 py-3 font-mono text-xs font-bold border-b border-neo-black/20 hover:bg-neo-black hover:text-acid cursor-none">/ABOUT</a>
+      <a href="#skills"     class="block px-4 py-3 font-mono text-xs font-bold border-b border-neo-black/20 hover:bg-neo-black hover:text-acid cursor-none">/STACK</a>
+      <a href="#experience" class="block px-4 py-3 font-mono text-xs font-bold border-b border-neo-black/20 hover:bg-neo-black hover:text-acid cursor-none">/LOGS</a>
+      <a href="#projects"   class="block px-4 py-3 font-mono text-xs font-bold border-b border-neo-black/20 hover:bg-neo-black hover:text-acid cursor-none">/WORK</a>
+      <a href="#opensource" class="block px-4 py-3 font-mono text-xs font-bold border-b border-neo-black/20 hover:bg-neo-black hover:text-acid cursor-none">/OPEN-SRC</a>
+      <a href="#community"  class="block px-4 py-3 font-mono text-xs font-bold border-b border-neo-black/20 hover:bg-neo-black hover:text-acid cursor-none">/COMMUNITY</a>
+      <a href="#contact"    class="block px-4 py-3 font-mono text-xs font-bold bg-acid cursor-none">HIRE ME</a>
+    </div>
+  </nav>
+
+  <!-- ─── HERO ─── -->
+  <section class="min-h-screen flex flex-col justify-center px-6 md:px-16 pt-24 pb-12 relative overflow-hidden border-b-4 border-neo-black">
+    <div class="absolute top-28 right-12 w-20 h-20 bg-acid border-4 border-neo-black shadow-brutal rotate-12 hidden lg:block"></div>
+    <div class="absolute bottom-28 right-36 w-12 h-12 bg-neo-red border-4 border-neo-black shadow-brutal -rotate-6 hidden lg:block"></div>
+    <div class="absolute top-1/2 right-12 w-7 h-7 bg-neo-blue border-2 border-neo-black hidden lg:block"></div>
+    <div class="absolute bottom-16 left-1/3 w-5 h-5 bg-neo-orange border-2 border-neo-black rotate-45 hidden lg:block"></div>
+
+    <div class="relative z-10 max-w-6xl">
+
+      <!-- Currently building banner -->
+      <div class="inline-flex items-center gap-3 bg-neo-black text-white px-4 py-2 font-mono text-xs font-bold mb-6 reveal border-l-4 border-acid">
+        <span class="w-2 h-2 bg-acid rounded-full currently-pulse inline-block flex-shrink-0"></span>
+        <span class="text-gray-400">CURRENTLY BUILDING →</span>
+        <a href="https://github.com/balacsegprec/aipms-rag-bootcamp" target="_blank" class="text-acid hover:underline cursor-none">AIPMS RAG Bootcamp</a>
+        <span class="text-gray-600">· RAG-based AI system @ GPREC</span>
+      </div>
+
+      <h1 class="big-text text-[17vw] md:text-[12vw] text-neo-black reveal" style="transition-delay:0.08s">SOMAPURAM</h1>
+      <h1 class="big-text text-[17vw] md:text-[12vw] mb-5 reveal" style="-webkit-text-stroke: 3px #0a0a0a; color: transparent; transition-delay:0.13s">UDAY</h1>
+
+      <div class="flex flex-wrap gap-2 mb-6 reveal" style="transition-delay:0.18s">
+        <span class="bg-acid border-2 border-neo-black px-3 py-1 font-mono text-xs font-bold shadow-brutal-sm">Frontend-core</span>
+        <span class="bg-white border-2 border-neo-black px-3 py-1 font-mono text-xs font-bold shadow-brutal-sm">Flask · Python Backend</span>
+        <span class="bg-neo-blue text-white border-2 border-neo-black px-3 py-1 font-mono text-xs font-bold shadow-brutal-sm">MERN Stack</span>
+        <span class="bg-neo-orange text-white border-2 border-neo-black px-3 py-1 font-mono text-xs font-bold shadow-brutal-sm">Tableau · Data Analytics</span>
+        <span class="bg-neo-black text-acid border-2 border-neo-black px-3 py-1 font-mono text-xs font-bold shadow-brutal-sm">Open Source Contributor</span>
+      </div>
+
+      <p class="font-mono text-sm md:text-base text-gray-600 max-w-xl mb-10 reveal border-l-4 border-acid pl-4" style="transition-delay:0.22s">
+        I build things that actually work — clean interfaces, solid backends, and dashboards people can use.<br>
+        <span class="text-gray-400 text-xs mt-1 block">B.Tech CSE · GPREC, Kurnool · Final Year · 2026</span>
+      </p>
+
+      <div class="flex flex-wrap gap-4 mb-8 reveal" style="transition-delay:0.26s">
+        <a href="#projects" class="btn-primary"><i class="ri-arrow-down-line"></i> SEE MY WORK</a>
+        <a href="https://udayworks.me" target="_blank" class="btn-secondary"><i class="ri-external-link-line"></i> FREELANCE PORTFOLIO</a>
+        <a href="#" class="btn-secondary cursor-none" onclick="alert('Resume link coming soon — reach out at udaysomapuram@gmail.com')"><i class="ri-download-line"></i> RESUME</a>
+      </div>
+
+      <div class="flex flex-wrap gap-x-4 gap-y-1 reveal" style="transition-delay:0.3s">
+        <a href="mailto:udaysomapuram@gmail.com" class="font-mono text-xs text-gray-500 hover:text-neo-red transition-colors cursor-none">udaysomapuram@gmail.com</a>
+        <span class="text-gray-300 hidden sm:inline">·</span>
+        <a href="https://linkedin.com/in/somapuramuday" target="_blank" class="font-mono text-xs text-gray-500 hover:text-neo-blue transition-colors cursor-none">linkedin/somapuramuday</a>
+        <span class="text-gray-300 hidden sm:inline">·</span>
+        <a href="https://github.com/udaycodespace" target="_blank" class="font-mono text-xs text-gray-500 hover:text-neo-black transition-colors cursor-none">github/udaycodespace</a>
+        <span class="text-gray-300 hidden sm:inline">·</span>
+        <a href="https://udayworks.me" target="_blank" class="font-mono text-xs text-gray-500 hover:text-neo-orange transition-colors cursor-none">udayworks.me</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── TICKER ─── -->
+  <div class="bg-neo-black border-b-4 border-neo-black py-3 overflow-hidden">
+    <div class="marquee-wrap">
+      <div class="marquee-track font-mono font-bold text-xs text-acid">
+        <span class="px-5 border-r border-acid/20 whitespace-nowrap">/// HTML · CSS · JAVASCRIPT</span>
+        <span class="px-5 border-r border-acid/20 whitespace-nowrap">/// FLASK · PYTHON BACKEND</span>
+        <span class="px-5 border-r border-acid/20 whitespace-nowrap">/// REACT · NODE.JS · EXPRESS</span>
+        <span class="px-5 border-r border-acid/20 whitespace-nowrap">/// MERN · MEAN STACK</span>
+        <span class="px-5 border-r border-acid/20 whitespace-nowrap">/// TABLEAU · DATA ANALYTICS</span>
+        <span class="px-5 border-r border-acid/20 whitespace-nowrap">/// FULL-STACK ENGINEER</span>
+        <span class="px-5 border-r border-acid/20 whitespace-nowrap">/// 5+ OPEN SOURCE CONTRIBUTIONS</span>
+        <span class="px-5 border-r border-acid/20 whitespace-nowrap">/// GOOGLE GEMINI AMBASSADOR</span>
+        <span class="px-5 border-r border-acid/20 whitespace-nowrap">/// INKERS TECHNOLOGY ALUM</span>
+        <span class="px-5 border-r border-acid/20 whitespace-nowrap">/// HTML · CSS · JAVASCRIPT</span>
+        <span class="px-5 border-r border-acid/20 whitespace-nowrap">/// FLASK · PYTHON BACKEND</span>
+        <span class="px-5 border-r border-acid/20 whitespace-nowrap">/// REACT · NODE.JS · EXPRESS</span>
+        <span class="px-5 border-r border-acid/20 whitespace-nowrap">/// MERN · MEAN STACK</span>
+        <span class="px-5 border-r border-acid/20 whitespace-nowrap">/// TABLEAU · DATA ANALYTICS</span>
+        <span class="px-5 border-r border-acid/20 whitespace-nowrap">/// FULL-STACK ENGINEER</span>
+        <span class="px-5 border-r border-acid/20 whitespace-nowrap">/// 5+ OPEN SOURCE CONTRIBUTIONS</span>
+        <span class="px-5 border-r border-acid/20 whitespace-nowrap">/// GOOGLE GEMINI AMBASSADOR</span>
+        <span class="px-5 border-r border-acid/20 whitespace-nowrap">/// INKERS TECHNOLOGY ALUM</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ─── ABOUT + STATS ─── -->
+  <section id="about" class="py-24 px-6 md:px-16">
+    <div class="max-w-7xl mx-auto">
+      <div class="grid grid-cols-1 md:grid-cols-12 gap-12 items-start mb-16">
+        <!-- Code block -->
+        <div class="md:col-span-5 reveal">
+          <div class="bg-neo-black border-4 border-neo-black p-7 shadow-brutal-lg relative">
+            <div class="absolute -top-3 -left-3 bg-acid border-2 border-neo-black px-3 py-0.5 font-mono text-xs font-black text-neo-black">IDENTITY.txt</div>
+            <div class="font-mono text-sm leading-relaxed">
+              <p class="text-gray-500 mb-2">// who is this guy?</p>
+              <p class="text-white"><span class="text-acid">const</span> <span class="text-neo-orange">uday</span> = {'{'}</p>
+              <p class="text-white ml-5">name: <span class="text-green-400">"Somapuram Uday"</span>,</p>
+              <p class="text-white ml-5">role: <span class="text-green-400">"Full-Stack Engineer"</span>,</p>
+              <p class="text-white ml-5">strength: <span class="text-green-400">"Frontend → Backend → Data"</span>,</p>
+              <p class="text-white ml-5">college: <span class="text-green-400">"GPREC, Kurnool"</span>,</p>
+              <p class="text-white ml-5">rollNo: <span class="text-green-400">"229X1A2856"</span>,</p>
+              <p class="text-white ml-5">graduating: <span class="text-neo-orange">2026</span>,</p>
+              <p class="text-white ml-5">freelance: <span class="text-green-400">"udayworks.me"</span>,</p>
+              <p class="text-white ml-5">github: <span class="text-green-400">"udaycodespace"</span>,</p>
+              <p class="text-white ml-5">status: <span class="text-acid">"open_to_work"</span></p>
+              <p class="text-white">{'}'}</p>
+            </div>
+          </div>
+
+          <!-- Education box -->
+          <div class="bg-white border-4 border-neo-black p-5 shadow-brutal mt-5 reveal">
+            <p class="section-label mb-3">EDUCATION</p>
+            <div class="border-l-4 border-acid pl-4">
+              <p class="font-black text-lg uppercase font-condensed">B.Tech — Computer Science & Engineering</p>
+              <p class="font-mono text-xs text-neo-blue font-bold mt-1">G. Pulla Reddy Engineering College (Autonomous)</p>
+              <p class="font-mono text-xs text-gray-500 mt-0.5">Affiliated to JNTUA · Kurnool, Andhra Pradesh</p>
+              <p class="font-mono text-xs text-gray-500">2022 – 2026 · Roll No: 229X1A2856</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- About text -->
+        <div class="md:col-span-7 reveal" style="transition-delay:0.1s">
+          <p class="section-label mb-3">// 01 — ABOUT</p>
+          <h2 class="big-text text-7xl md:text-8xl mb-6">WHO<br>AM I?</h2>
+          <p class="font-mono text-sm leading-relaxed text-gray-700 mb-4 border-l-4 border-neo-black pl-4">
+            I'm a final-year CSE student at GPREC, Kurnool — and I genuinely enjoy building things. Not just finishing them, actually building them. My sweet spot is frontend — HTML, CSS, JavaScript is where I'm most comfortable — and I back that up with Flask+Python on the server side.
+          </p>
+          <p class="font-mono text-sm leading-relaxed text-gray-700 mb-4 border-l-4 border-acid pl-4">
+            I've done enough React, Node.js and the MERN/MEAN stack to build real stuff end-to-end. On the data side, I've shipped complete Tableau dashboards and run proper analytics pipelines. I also have some ML background — though honestly I care more about building clean interfaces than training models right now.
+          </p>
+          <p class="font-mono text-sm leading-relaxed text-gray-700 mb-6 border-l-4 border-neo-black pl-4">
+            I interned at Inkers Technology in Bengaluru (Dec '25 – Mar '26), contributed frontend to 5+ open-source projects, and built a blockchain-based credential system as my final-year project with two teammates. I also run a freelance portfolio at <a href="https://udayworks.me" target="_blank" class="text-neo-blue underline cursor-none">udayworks.me</a>.
+          </p>
+          <div class="flex flex-wrap gap-3">
+            <div class="bg-white border-2 border-neo-black px-4 py-2 shadow-brutal-sm font-mono text-xs font-bold">📍 Kurnool, AP</div>
+            <div class="bg-acid border-2 border-neo-black px-4 py-2 shadow-brutal-sm font-mono text-xs font-bold">🟢 OPEN TO WORK</div>
+            <div class="bg-neo-blue text-white border-2 border-neo-black px-4 py-2 shadow-brutal-sm font-mono text-xs font-bold">🎓 CSE '26</div>
+            <div class="bg-neo-black text-acid border-2 border-neo-black px-4 py-2 shadow-brutal-sm font-mono text-xs font-bold">💼 GPREC Autonomous</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Stats row -->
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-4 reveal">
+        <div class="bg-neo-black border-4 border-neo-black p-6 shadow-brutal text-center">
+          <div class="stat-number text-6xl text-acid">5+</div>
+          <p class="font-mono text-xs text-gray-400 mt-2 uppercase tracking-widest">Open Source<br>Contributions</p>
+        </div>
+        <div class="bg-acid border-4 border-neo-black p-6 shadow-brutal text-center">
+          <div class="stat-number text-6xl text-neo-black">4</div>
+          <p class="font-mono text-xs text-neo-black mt-2 uppercase tracking-widest font-bold">Months at<br>Inkers Tech</p>
+        </div>
+        <div class="bg-white border-4 border-neo-black p-6 shadow-brutal text-center">
+          <div class="stat-number text-6xl text-neo-black">3+</div>
+          <p class="font-mono text-xs text-gray-500 mt-2 uppercase tracking-widest">Internships<br>Completed</p>
+        </div>
+        <div class="bg-neo-blue border-4 border-neo-black p-6 shadow-brutal text-center">
+          <div class="stat-number text-6xl text-white">10+</div>
+          <p class="font-mono text-xs text-blue-100 mt-2 uppercase tracking-widest">Certifications<br>Earned</p>
+        </div>
+      </div>
+
+      <!-- GitHub note -->
+      <div class="mt-5 bg-white border-2 border-neo-black p-4 shadow-brutal-sm flex gap-3 items-start reveal">
+        <span class="text-lg flex-shrink-0">ℹ️</span>
+        <p class="font-mono text-xs text-gray-600 leading-relaxed">
+          <span class="font-bold text-neo-black">Note on GitHub stats:</span> My commit history may look low — I reorganized from 54 repos down to 10 structured ones, so the contribution graph doesn't reflect the actual work. The code is all there, just consolidated.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── CURRENTLY BUILDING ─── -->
+  <section class="py-12 px-6 md:px-16 bg-neo-black border-y-4 border-neo-black">
+    <div class="max-w-7xl mx-auto">
+      <div class="flex flex-col md:flex-row items-start md:items-center gap-6">
+        <div class="flex-shrink-0">
+          <div class="flex items-center gap-3 mb-1">
+            <span class="w-3 h-3 bg-acid rounded-full currently-pulse inline-block"></span>
+            <p class="font-mono text-xs text-acid font-bold uppercase tracking-widest">Currently Building</p>
+          </div>
+          <h3 class="big-text text-5xl text-white">WHAT'S<br>COOKING</h3>
+        </div>
+        <div class="flex-1 border-l-0 md:border-l-4 border-acid md:pl-8">
+          <div class="bg-neo-bg border-4 border-acid p-5 shadow-brutal-acid">
+            <div class="flex justify-between items-start flex-wrap gap-3">
+              <div>
+                <p class="font-black text-xl uppercase font-condensed">AIPMS RAG Bootcamp</p>
+                <p class="font-mono text-xs text-gray-500 mt-1">RAG-based AI system · GPREC Collaboration</p>
+              </div>
+              <a href="https://github.com/balacsegprec/aipms-rag-bootcamp" target="_blank" class="btn-ghost text-xs cursor-none">
+                <i class="ri-github-fill"></i> VIEW ON GITHUB
+              </a>
+            </div>
+            <p class="font-mono text-sm text-gray-700 mt-3 leading-relaxed">
+              Building a Retrieval-Augmented Generation system as part of a bootcamp initiative at GPREC. Involves setting up document pipelines, embedding models, and a query interface — good mix of backend work and AI tooling.
+            </p>
+            <div class="flex flex-wrap gap-2 mt-3">
+              <span class="tag tag-acid">RAG</span>
+              <span class="tag">LLM</span>
+              <span class="tag">Python</span>
+              <span class="tag">Vector DB</span>
+              <span class="tag">GPREC</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── SKILLS ─── -->
+  <section id="skills" class="py-20 bg-neo-black text-white border-b-4 border-neo-black relative overflow-hidden">
+    <div class="absolute inset-0 opacity-[0.06]" style="background-image: linear-gradient(#ccc 1px, transparent 1px), linear-gradient(90deg, #ccc 1px, transparent 1px); background-size: 40px 40px;"></div>
+    <div class="max-w-7xl mx-auto px-6 relative z-10">
+      <div class="flex flex-col md:flex-row justify-between items-end mb-10 border-b-4 border-white pb-4">
+        <h2 class="big-text text-7xl md:text-9xl">TECH<span class="text-acid">_STACK</span></h2>
+        <div class="flex items-center gap-2 mb-1">
+          <div class="w-2 h-2 bg-acid rounded-full animate-pulse"></div>
+          <p class="font-mono text-acid text-xs font-bold">/// FRONTEND_FIRST</p>
+        </div>
+      </div>
+
+      <p class="section-label text-gray-500 mb-3">FRONTEND — WHERE I LIVE</p>
+      <div class="flex flex-wrap mb-8">
+        <div class="skill-cell group w-1/2 sm:w-1/3 md:w-1/6 h-20 bg-neo-black hover:bg-acid flex flex-col items-center justify-center p-2">
+          <div class="text-acid group-hover:text-neo-black font-mono text-[9px] mb-1 opacity-50">>_ CORE</div>
+          <div class="text-white group-hover:text-neo-black font-display text-2xl">HTML5</div>
+        </div>
+        <div class="skill-cell group w-1/2 sm:w-1/3 md:w-1/6 h-20 bg-neo-black hover:bg-neo-blue flex flex-col items-center justify-center p-2">
+          <div class="text-acid group-hover:text-white font-mono text-[9px] mb-1 opacity-50">>_ STYLING</div>
+          <div class="text-white font-display text-2xl">CSS3</div>
+        </div>
+        <div class="skill-cell group w-1/2 sm:w-1/3 md:w-1/6 h-20 bg-neo-black hover:bg-yellow-300 flex flex-col items-center justify-center p-2">
+          <div class="text-acid group-hover:text-neo-black font-mono text-[9px] mb-1 opacity-50">>_ LANGUAGE</div>
+          <div class="text-white group-hover:text-neo-black font-display text-2xl">JS</div>
+        </div>
+        <div class="skill-cell group w-1/2 sm:w-1/3 md:w-1/6 h-20 bg-neo-black hover:bg-cyan-400 flex flex-col items-center justify-center p-2">
+          <div class="text-acid group-hover:text-neo-black font-mono text-[9px] mb-1 opacity-50">>_ LIBRARY</div>
+          <div class="text-white group-hover:text-neo-black font-display text-2xl">REACT</div>
+        </div>
+        <div class="skill-cell group w-1/2 sm:w-1/3 md:w-1/6 h-20 bg-neo-black hover:bg-purple-500 flex flex-col items-center justify-center p-2">
+          <div class="text-acid group-hover:text-white font-mono text-[9px] mb-1 opacity-50">>_ STATE</div>
+          <div class="text-white font-display text-2xl">REDUX</div>
+        </div>
+        <div class="skill-cell group w-1/2 sm:w-1/3 md:w-1/6 h-20 bg-neo-black hover:bg-sky-400 flex flex-col items-center justify-center p-2">
+          <div class="text-acid group-hover:text-neo-black font-mono text-[9px] mb-1 opacity-50">>_ STYLING</div>
+          <div class="text-white group-hover:text-neo-black font-display text-2xl">TAILWIND</div>
+        </div>
+      </div>
+
+      <p class="section-label text-gray-500 mb-3">BACKEND</p>
+      <div class="flex flex-wrap mb-8">
+        <div class="skill-cell group w-1/2 sm:w-1/3 md:w-1/6 h-20 bg-neo-black hover:bg-neo-teal flex flex-col items-center justify-center p-2">
+          <div class="text-acid group-hover:text-neo-black font-mono text-[9px] mb-1 opacity-50">>_ FRAMEWORK</div>
+          <div class="text-white group-hover:text-neo-black font-display text-2xl">FLASK</div>
+        </div>
+        <div class="skill-cell group w-1/2 sm:w-1/3 md:w-1/6 h-20 bg-neo-black hover:bg-blue-500 flex flex-col items-center justify-center p-2">
+          <div class="text-acid group-hover:text-white font-mono text-[9px] mb-1 opacity-50">>_ LANGUAGE</div>
+          <div class="text-white font-display text-2xl">PYTHON</div>
+        </div>
+        <div class="skill-cell group w-1/2 sm:w-1/3 md:w-1/6 h-20 bg-neo-black hover:bg-green-500 flex flex-col items-center justify-center p-2">
+          <div class="text-acid group-hover:text-white font-mono text-[9px] mb-1 opacity-50">>_ RUNTIME</div>
+          <div class="text-white font-display text-2xl">NODE.JS</div>
+        </div>
+        <div class="skill-cell group w-1/2 sm:w-1/3 md:w-1/6 h-20 bg-neo-black hover:bg-neo-bg flex flex-col items-center justify-center p-2">
+          <div class="text-acid group-hover:text-neo-black font-mono text-[9px] mb-1 opacity-50">>_ FRAMEWORK</div>
+          <div class="text-white group-hover:text-neo-black font-display text-2xl">EXPRESS</div>
+        </div>
+        <div class="skill-cell group w-1/2 sm:w-1/3 md:w-1/6 h-20 bg-neo-black hover:bg-green-800 flex flex-col items-center justify-center p-2">
+          <div class="text-acid group-hover:text-white font-mono text-[9px] mb-1 opacity-50">>_ DATABASE</div>
+          <div class="text-white font-display text-2xl">MONGODB</div>
+        </div>
+        <div class="skill-cell group w-1/2 sm:w-1/3 md:w-1/6 h-20 bg-neo-black hover:bg-blue-300 flex flex-col items-center justify-center p-2">
+          <div class="text-acid group-hover:text-neo-black font-mono text-[9px] mb-1 opacity-50">>_ DATABASE</div>
+          <div class="text-white group-hover:text-neo-black font-display text-2xl">SQL</div>
+        </div>
+      </div>
+
+      <p class="section-label text-gray-500 mb-3">DATA · ANALYTICS · TOOLS</p>
+      <div class="flex flex-wrap">
+        <div class="skill-cell group w-1/2 sm:w-1/3 md:w-1/6 h-20 bg-neo-black hover:bg-neo-orange flex flex-col items-center justify-center p-2">
+          <div class="text-acid group-hover:text-white font-mono text-[9px] mb-1 opacity-50">>_ DATAVIZ</div>
+          <div class="text-white font-display text-2xl">TABLEAU</div>
+        </div>
+        <div class="skill-cell group w-1/2 sm:w-1/3 md:w-1/6 h-20 bg-neo-black hover:bg-yellow-500 flex flex-col items-center justify-center p-2">
+          <div class="text-acid group-hover:text-neo-black font-mono text-[9px] mb-1 opacity-50">>_ DATA</div>
+          <div class="text-white group-hover:text-neo-black font-display text-2xl">PANDAS</div>
+        </div>
+        <div class="skill-cell group w-1/2 sm:w-1/3 md:w-1/6 h-20 bg-neo-black hover:bg-neo-red flex flex-col items-center justify-center p-2">
+          <div class="text-acid group-hover:text-white font-mono text-[9px] mb-1 opacity-50">>_ ML-LIGHT</div>
+          <div class="text-white font-display text-2xl">SKLEARN</div>
+        </div>
+        <div class="skill-cell group w-1/2 sm:w-1/3 md:w-1/6 h-20 bg-neo-black hover:bg-gray-300 flex flex-col items-center justify-center p-2">
+          <div class="text-acid group-hover:text-neo-black font-mono text-[9px] mb-1 opacity-50">>_ VERSION</div>
+          <div class="text-white group-hover:text-neo-black font-display text-2xl">GIT</div>
+        </div>
+        <div class="skill-cell group w-1/2 sm:w-1/3 md:w-1/6 h-20 bg-neo-black hover:bg-neo-blue flex flex-col items-center justify-center p-2">
+          <div class="text-acid group-hover:text-white font-mono text-[9px] mb-1 opacity-50">>_ CONTAINERS</div>
+          <div class="text-white font-display text-2xl">DOCKER</div>
+        </div>
+        <div class="skill-cell group w-1/2 sm:w-1/3 md:w-1/6 h-20 bg-neo-black hover:bg-acid flex flex-col items-center justify-center p-2">
+          <div class="text-acid group-hover:text-neo-black font-mono text-[9px] mb-1 opacity-50">>_ WEB3</div>
+          <div class="text-white group-hover:text-neo-black font-display text-2xl">IPFS/ZKP</div>
+        </div>
+      </div>
+      <div class="border-t-4 border-white mt-5 pt-3 flex justify-between font-mono text-xs text-gray-600">
+        <span>TOTAL_NODES: 18 · FRONTEND_NODES: 6 (PRIMARY)</span>
+        <span>STATUS: ONLINE</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── EXPERIENCE ─── -->
+  <section id="experience" class="py-24 px-6 md:px-16">
+    <div class="max-w-5xl mx-auto">
+      <p class="section-label mb-3">// 03 — EXPERIENCE_LOG</p>
+      <h2 class="big-text text-7xl md:text-9xl mb-14">EXP<span class="text-neo-red">_LOG</span></h2>
+
+      <div class="relative border-l-4 border-neo-black ml-2 space-y-10">
+
+        <!-- Inkers -->
+        <div class="reveal relative pl-10">
+          <div class="exp-dot bg-acid"></div>
+          <div class="bg-white border-4 border-neo-black p-6 shadow-brutal hover:shadow-brutal-xl transition-all">
+            <div class="flex flex-col md:flex-row justify-between items-start md:items-center border-b-2 border-dashed border-gray-200 pb-3 mb-4 gap-2">
+              <h3 class="text-2xl md:text-3xl font-black uppercase font-condensed">Full-Stack Intern</h3>
+              <span class="font-mono text-xs font-bold bg-neo-black text-acid px-2 py-1 flex-shrink-0">DEC 2025 – MAR 2026 · 4 MOS</span>
+            </div>
+            <p class="font-mono text-sm text-neo-blue font-bold mb-1">@ Inkers Technology Pvt. Ltd.</p>
+            <p class="font-mono text-xs text-gray-500 mb-3">HSR Layout, Bengaluru — Offline / In-person</p>
+            <ul class="font-mono text-xs text-gray-700 space-y-1.5">
+              <li>→ Solo-built CampusEventHub — a full event management platform on the MERN stack</li>
+              <li>→ Delivered a Redux Toolkit Task Manager and a Frappe+React Enterprise Task Manager with role-based access control</li>
+              <li>→ Completed DevOps foundations: Docker, shell scripting, MIT Missing Semester</li>
+              <li>→ Final phase: remote documentation and GitHub consolidation</li>
+              <li>→ Formally certified as diligent, proactive and eager to learn (Completion Certificate issued by company)</li>
+            </ul>
+            <div class="flex flex-wrap gap-2 mt-4">
+              <span class="tag">MERN</span><span class="tag">Redux Toolkit</span><span class="tag">Frappe Framework</span><span class="tag">Docker</span><span class="tag">GitHub</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Open Source -->
+        <div class="reveal relative pl-10" style="transition-delay:0.05s">
+          <div class="exp-dot bg-neo-blue"></div>
+          <div class="bg-white border-4 border-neo-black p-6 shadow-brutal hover:shadow-brutal-xl transition-all">
+            <div class="flex flex-col md:flex-row justify-between items-start md:items-center border-b-2 border-dashed border-gray-200 pb-3 mb-4 gap-2">
+              <h3 class="text-2xl md:text-3xl font-black uppercase font-condensed">Frontend Engineer · Open Source</h3>
+              <span class="font-mono text-xs font-bold bg-neo-black text-acid px-2 py-1 flex-shrink-0">JAN 2026 – PRESENT</span>
+            </div>
+            <p class="font-mono text-sm text-neo-blue font-bold mb-1">@ Open Source (Remote · Part-time)</p>
+            <p class="font-mono text-xs text-gray-500 mb-3">github.com/udaycodespace/open-source</p>
+            <ul class="font-mono text-xs text-gray-700 space-y-1.5">
+              <li>→ Contributed frontend to 5 production-oriented open-source projects across ML, Spring Boot, and Flask stacks</li>
+              <li>→ Clear role discipline — UI/UX ownership without touching backend or ML code</li>
+              <li>→ Appreciated by maintainers for clean code, good communication, and respecting project scope</li>
+            </ul>
+            <div class="flex flex-wrap gap-2 mt-4">
+              <span class="tag">HTML/CSS/JS</span><span class="tag">React</span><span class="tag">Flask Frontend</span><span class="tag">REST API Integration</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Edunet -->
+        <div class="reveal relative pl-10" style="transition-delay:0.1s">
+          <div class="exp-dot bg-neo-orange"></div>
+          <div class="bg-white border-4 border-neo-black p-6 shadow-brutal hover:shadow-brutal-xl transition-all">
+            <div class="flex flex-col md:flex-row justify-between items-start md:items-center border-b-2 border-dashed border-gray-200 pb-3 mb-4 gap-2">
+              <h3 class="text-2xl md:text-3xl font-black uppercase font-condensed">AI + Azure Virtual Intern</h3>
+              <span class="font-mono text-xs font-bold bg-neo-black text-acid px-2 py-1 flex-shrink-0">MAY – JUN 2025</span>
+            </div>
+            <p class="font-mono text-sm text-neo-blue font-bold mb-1">@ Edunet Foundation × Microsoft × AICTE</p>
+            <p class="font-mono text-xs text-gray-500 mb-3">Remote · 4-week structured program</p>
+            <ul class="font-mono text-xs text-gray-700 space-y-1.5">
+              <li>→ Built an Anime Recommendation System using K-Means clustering + TF-IDF on 15K+ entries</li>
+              <li>→ Worked with Python, scikit-learn, nltk, Azure ML Studio, and Google Colab</li>
+              <li>→ Passed AI-900 assessments and delivered final GitHub submission + demo</li>
+            </ul>
+            <div class="flex flex-wrap gap-2 mt-4">
+              <span class="tag">Python</span><span class="tag">Unsupervised ML</span><span class="tag">Azure</span><span class="tag tag-acid">AI-900 Certified</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Tableau placeholder -->
+        <div class="reveal relative pl-10" style="transition-delay:0.15s">
+          <div class="exp-dot bg-neo-pink"></div>
+          <div class="bg-white border-4 border-dashed border-neo-black p-6 shadow-brutal-sm">
+            <div class="flex flex-col md:flex-row justify-between items-start md:items-center border-b-2 border-dashed border-gray-200 pb-3 mb-4 gap-2">
+              <h3 class="text-2xl md:text-3xl font-black uppercase font-condensed text-gray-400">Data Analytics Intern · Tableau</h3>
+              <span class="font-mono text-xs font-bold bg-gray-200 text-gray-500 px-2 py-1 flex-shrink-0">DETAILS COMING SOON</span>
+            </div>
+            <p class="font-mono text-xs text-gray-400">Tableau & Data Analytics internship — company and dates to be added.</p>
+            <div class="flex flex-wrap gap-2 mt-4">
+              <span class="tag">Tableau</span><span class="tag">Data Analytics</span><span class="tag">EDA</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── PROJECTS ─── -->
+  <section id="projects" class="py-24 bg-acid border-y-4 border-neo-black px-6 md:px-16 overflow-hidden">
+    <div class="max-w-7xl mx-auto">
+      <p class="section-label mb-3">// 04 — SELECTED WORK</p>
+      <h2 class="big-text text-7xl md:text-9xl mb-14 text-neo-black">PROJECTS</h2>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
+
+        <!-- Credify -->
+        <article class="reveal project-card bg-white border-4 border-neo-black p-5 shadow-brutal">
+          <div class="bg-neo-black border-2 border-neo-black aspect-video flex items-center justify-center mb-5 relative overflow-hidden">
+            <div class="absolute inset-0 opacity-20" style="background-image: repeating-linear-gradient(45deg, #CCFF00 0, #CCFF00 1px, transparent 0, transparent 50%); background-size: 8px 8px;"></div>
+            <span class="big-text text-6xl text-acid relative z-10">CREDIFY</span>
+          </div>
+          <div class="flex justify-between items-start gap-3">
+            <div class="flex-1">
+              <div class="flex items-center gap-2 mb-1">
+                <h3 class="text-2xl font-black uppercase font-condensed glitch">Blockchain Credential System</h3>
+              </div>
+              <p class="font-mono text-xs text-gray-600 mb-3 leading-relaxed">Final-year B.Tech project at GPREC. Tamper-proof academic credential issuance and verification using blockchain, IPFS, and zero-knowledge proofs. Students selectively disclose only what's needed — W3C Verifiable Credentials with DIDs.</p>
+              <p class="font-mono text-xs text-gray-400 mb-3">Built with: <span class="font-bold text-neo-black">Shashi Kiran & Teja Varshith</span> · Guide: Mr. B. Thimma Reddy</p>
+              <div class="flex flex-wrap gap-1 mb-3">
+                <span class="tag">Hyperledger Fabric</span><span class="tag">IPFS</span><span class="tag">ZKP</span><span class="tag">Python/Flask</span><span class="tag">React</span>
+              </div>
+              <div class="flex gap-3">
+                <a href="https://blockchain-academic-credential-system.onrender.com/" target="_blank" class="font-mono text-xs font-bold text-neo-blue underline cursor-none">Live →</a>
+                <a href="https://blockcred-frontend.onrender.com/" target="_blank" class="font-mono text-xs font-bold text-neo-blue underline cursor-none">MVP →</a>
+              </div>
+            </div>
+            <a href="https://github.com/udaycodespace" target="_blank" class="w-11 h-11 border-2 border-neo-black bg-acid flex items-center justify-center hover:bg-neo-black hover:text-acid transition-colors flex-shrink-0 cursor-none shadow-brutal-sm">
+              <i class="ri-arrow-right-up-line text-lg text-neo-black group-hover:text-acid"></i>
+            </a>
+          </div>
+        </article>
+
+        <!-- CampusEventHub -->
+        <article class="reveal project-card bg-white border-4 border-neo-black p-5 shadow-brutal md:mt-14" style="transition-delay:0.1s">
+          <div class="bg-neo-blue border-2 border-neo-black aspect-video flex items-center justify-center mb-5 relative overflow-hidden">
+            <div class="absolute inset-0 opacity-10" style="background-image: repeating-linear-gradient(-45deg, white 0, white 1px, transparent 0, transparent 50%); background-size: 8px 8px;"></div>
+            <span class="big-text text-4xl text-white relative z-10 text-center px-4">CAMPUS EVENT HUB</span>
+          </div>
+          <div class="flex justify-between items-start gap-3">
+            <div class="flex-1">
+              <h3 class="text-2xl font-black uppercase font-condensed mb-1 glitch">CampusEventHub</h3>
+              <p class="font-mono text-xs text-neo-orange font-bold mb-2">@ Inkers Technology Pvt. Ltd.</p>
+              <p class="font-mono text-xs text-gray-600 mb-3 leading-relaxed">Solo-built from scratch during my internship at Inkers. A full event management platform — create, manage, and track campus events end-to-end. Built with MERN stack entirely by me.</p>
+              <div class="flex flex-wrap gap-1">
+                <span class="tag">MongoDB</span><span class="tag">Express</span><span class="tag">React</span><span class="tag">Node.js</span><span class="tag">Redux Toolkit</span>
+              </div>
+            </div>
+            <a href="https://github.com/udaycodespace" target="_blank" class="w-11 h-11 border-2 border-neo-black bg-acid flex items-center justify-center hover:bg-neo-black hover:text-acid transition-colors flex-shrink-0 cursor-none shadow-brutal-sm">
+              <i class="ri-arrow-right-up-line text-lg"></i>
+            </a>
+          </div>
+        </article>
+
+        <!-- Cosmetic Insights -->
+        <article class="reveal project-card bg-white border-4 border-neo-black p-5 shadow-brutal" style="transition-delay:0.15s">
+          <div class="bg-neo-orange border-2 border-neo-black aspect-video flex items-center justify-center mb-5 relative overflow-hidden">
+            <div class="absolute inset-0 opacity-10" style="background-image: radial-gradient(circle, white 1px, transparent 1px); background-size: 18px 18px;"></div>
+            <span class="big-text text-4xl text-white relative z-10 text-center px-4">COSMETIC INSIGHTS</span>
+          </div>
+          <div class="flex justify-between items-start gap-3">
+            <div class="flex-1">
+              <h3 class="text-2xl font-black uppercase font-condensed mb-1 glitch">Cosmetic Insights Dashboard</h3>
+              <p class="font-mono text-xs text-neo-orange font-bold mb-2">SmartBridge 2025 · Tableau</p>
+              <p class="font-mono text-xs text-gray-600 mb-3 leading-relaxed">End-to-end Tableau project for cosmetics industry data. Cleaned multi-source data in Excel, built dynamic dashboards covering category performance, regional sales, and customer preferences. Fully stakeholder-ready.</p>
+              <div class="flex flex-wrap gap-1">
+                <span class="tag">Tableau</span><span class="tag">Data Visualization</span><span class="tag">Excel</span><span class="tag">EDA</span><span class="tag">Data Storytelling</span>
+              </div>
+            </div>
+            <a href="https://github.com/udaycodespace" target="_blank" class="w-11 h-11 border-2 border-neo-black bg-acid flex items-center justify-center hover:bg-neo-black hover:text-acid transition-colors flex-shrink-0 cursor-none shadow-brutal-sm">
+              <i class="ri-arrow-right-up-line text-lg"></i>
+            </a>
+          </div>
+        </article>
+
+        <!-- Anime Recommender -->
+        <article class="reveal project-card bg-white border-4 border-neo-black p-5 shadow-brutal md:mt-14" style="transition-delay:0.2s">
+          <div class="bg-neo-pink border-2 border-neo-black aspect-video flex items-center justify-center mb-5 relative overflow-hidden">
+            <span class="big-text text-4xl text-white relative z-10 text-center px-4">ANIME RECOMMENDER</span>
+          </div>
+          <div class="flex justify-between items-start gap-3">
+            <div class="flex-1">
+              <h3 class="text-2xl font-black uppercase font-condensed mb-1 glitch">Anime Recommendation System</h3>
+              <p class="font-mono text-xs text-neo-pink font-bold mb-2">Edunet × Microsoft AI Internship Final</p>
+              <p class="font-mono text-xs text-gray-600 mb-3 leading-relaxed">Content-based recommendations without needing user history. TF-IDF + K-Means on 15K+ anime entries, with fuzzy matching for real search. Built and submitted as final internship eval.</p>
+              <div class="flex flex-wrap gap-1">
+                <span class="tag">Python</span><span class="tag">TF-IDF</span><span class="tag">K-Means</span><span class="tag">Fuzzy Matching</span><span class="tag">Unsupervised ML</span>
+              </div>
+            </div>
+            <a href="https://github.com/udaycodespace" target="_blank" class="w-11 h-11 border-2 border-neo-black bg-acid flex items-center justify-center hover:bg-neo-black hover:text-acid transition-colors flex-shrink-0 cursor-none shadow-brutal-sm">
+              <i class="ri-arrow-right-up-line text-lg"></i>
+            </a>
+          </div>
+        </article>
+      </div>
+
+      <div class="text-center mt-14">
+        <a href="https://github.com/udaycodespace" target="_blank" class="btn-primary text-base cursor-none">
+          <i class="ri-github-fill"></i> ALL REPOS ON GITHUB
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── OPEN SOURCE ─── -->
+  <section id="opensource" class="py-24 px-6 md:px-16 border-b-4 border-neo-black">
+    <div class="max-w-7xl mx-auto">
+      <p class="section-label mb-3">// 05 — OPEN SOURCE</p>
+      <h2 class="big-text text-7xl md:text-9xl mb-4">OPEN<br><span class="text-neo-blue">SOURCE</span></h2>
+      <p class="font-mono text-sm text-gray-600 mb-12 max-w-2xl border-l-4 border-neo-blue pl-4">
+        All contributions are frontend-only — I come in, own the UI layer, ship something clean, and leave the backend untouched. That's the discipline. All 5 projects live under <a href="https://github.com/udaycodespace/open-source" target="_blank" class="text-neo-blue underline cursor-none">github.com/udaycodespace/open-source</a>
+      </p>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+
+        <!-- EduTrack -->
+        <div class="reveal os-card bg-white border-4 border-neo-black p-5 shadow-brutal">
+          <div class="flex items-center justify-between mb-4">
+            <div class="w-10 h-10 bg-neo-blue border-2 border-neo-black flex items-center justify-center flex-shrink-0">
+              <i class="ri-graduation-cap-fill text-white text-lg"></i>
+            </div>
+            <span class="tag tag-blue">SPRING BOOT + MONGO</span>
+          </div>
+          <h3 class="font-black text-xl uppercase font-condensed mb-1">EduTrack</h3>
+          <p class="font-mono text-xs text-neo-blue font-bold mb-2">Built frontend from scratch · Role: UI/UX Owner</p>
+          <p class="font-mono text-xs text-gray-600 leading-relaxed mb-4">Classroom and student management portal. Spring Boot REST backend + MongoDB. I built the entire frontend — forms, tables, API wiring — without touching a line of Java.</p>
+          <div class="flex flex-wrap gap-1 mb-4">
+            <span class="tag">HTML/CSS/JS</span><span class="tag">REST APIs</span><span class="tag">Spring Boot UI</span>
+          </div>
+          <a href="https://github.com/udaycodespace/open-source" target="_blank" class="btn-ghost w-full justify-center cursor-none text-xs">
+            <i class="ri-github-fill"></i> VIEW CONTRIBUTION
+          </a>
+        </div>
+
+        <!-- Forest Fire -->
+        <div class="reveal os-card bg-white border-4 border-neo-black p-5 shadow-brutal" style="transition-delay:0.05s">
+          <div class="flex items-center justify-between mb-4">
+            <div class="w-10 h-10 bg-neo-red border-2 border-neo-black flex items-center justify-center flex-shrink-0">
+              <i class="ri-fire-fill text-white text-lg"></i>
+            </div>
+            <span class="tag">FLASK + ML</span>
+          </div>
+          <h3 class="font-black text-xl uppercase font-condensed mb-1">Predict Forest Fire</h3>
+          <p class="font-mono text-xs text-neo-red font-bold mb-2">Frontend UI · Role: UI/UX Owner</p>
+          <p class="font-mono text-xs text-gray-600 leading-relaxed mb-4">Algerian Forest Fire FWI prediction via Ridge Regression. I built the web interface — prediction form, risk band display, client-side validation. Backend and ML by the original author.</p>
+          <div class="flex flex-wrap gap-1 mb-4">
+            <span class="tag">HTML/CSS/JS</span><span class="tag">Flask UI</span><span class="tag">Form Validation</span>
+          </div>
+          <p class="font-mono text-xs text-gray-400 mb-3">Credited as: <span class="font-bold text-neo-black">Frontend/UI — udaycodespace</span></p>
+          <a href="https://github.com/udaycodespace/open-source" target="_blank" class="btn-ghost w-full justify-center cursor-none text-xs">
+            <i class="ri-github-fill"></i> VIEW CONTRIBUTION
+          </a>
+        </div>
+
+        <!-- Heart Attack -->
+        <div class="reveal os-card bg-white border-4 border-neo-black p-5 shadow-brutal" style="transition-delay:0.1s">
+          <div class="flex items-center justify-between mb-4">
+            <div class="w-10 h-10 bg-neo-pink border-2 border-neo-black flex items-center justify-center flex-shrink-0">
+              <i class="ri-heart-pulse-fill text-white text-lg"></i>
+            </div>
+            <span class="tag">FLASK + ML</span>
+          </div>
+          <h3 class="font-black text-xl uppercase font-condensed mb-1">Heart Attack Prediction</h3>
+          <p class="font-mono text-xs text-neo-pink font-bold mb-2">Frontend UI · Role: UI/UX Owner</p>
+          <p class="font-mono text-xs text-gray-600 leading-relaxed mb-4">Logistic Regression model predicting heart attack risk from 14 medical features. I designed and built the input form, result display, and overall UI. 81.3% accuracy model by original authors.</p>
+          <div class="flex flex-wrap gap-1 mb-4">
+            <span class="tag">HTML/CSS/JS</span><span class="tag">Flask UI</span><span class="tag">Medical UX</span>
+          </div>
+          <a href="https://github.com/udaycodespace/open-source" target="_blank" class="btn-ghost w-full justify-center cursor-none text-xs">
+            <i class="ri-github-fill"></i> VIEW CONTRIBUTION
+          </a>
+        </div>
+
+        <!-- Car Price -->
+        <div class="reveal os-card bg-white border-4 border-neo-black p-5 shadow-brutal" style="transition-delay:0.15s">
+          <div class="flex items-center justify-between mb-4">
+            <div class="w-10 h-10 bg-neo-orange border-2 border-neo-black flex items-center justify-center flex-shrink-0">
+              <i class="ri-car-fill text-white text-lg"></i>
+            </div>
+            <span class="tag">FLASK + ML</span>
+          </div>
+          <h3 class="font-black text-xl uppercase font-condensed mb-1">CarValue — Car Price Prediction</h3>
+          <p class="font-mono text-xs text-neo-orange font-bold mb-2">UI/UX Re-Engineering · Role: Frontend</p>
+          <p class="font-mono text-xs text-gray-600 leading-relaxed mb-4">"Digital Showroom" redesign of a car price ML interface. Built an abstraction layer mapping human car names to numeric IDs, added a confidence meter, market verdict logic, and micro-animations. 100% compatible with existing Flask pipeline.</p>
+          <div class="flex flex-wrap gap-1 mb-4">
+            <span class="tag">HTML/CSS/JS</span><span class="tag">Data Mapping</span><span class="tag">UX Design</span>
+          </div>
+          <a href="https://github.com/udaycodespace/open-source" target="_blank" class="btn-ghost w-full justify-center cursor-none text-xs">
+            <i class="ri-github-fill"></i> VIEW CONTRIBUTION
+          </a>
+        </div>
+
+        <!-- Thumb Grabber -->
+        <div class="reveal os-card bg-white border-4 border-neo-black p-5 shadow-brutal" style="transition-delay:0.2s">
+          <div class="flex items-center justify-between mb-4">
+            <div class="w-10 h-10 bg-neo-black border-2 border-neo-black flex items-center justify-center flex-shrink-0">
+              <i class="ri-youtube-fill text-acid text-lg"></i>
+            </div>
+            <span class="tag tag-acid">VANILLA JS · NO BACKEND</span>
+          </div>
+          <h3 class="font-black text-xl uppercase font-condensed mb-1">Thumb Grabber</h3>
+          <p class="font-mono text-xs text-gray-600 font-bold mb-2">Built this one solo · Role: Full Frontend</p>
+          <p class="font-mono text-xs text-gray-600 leading-relaxed mb-4">Simple web tool to download YouTube video thumbnails at any resolution. Pure HTML, CSS, Vanilla JS — no backend, no auth, no tracking. Paste a link, get your thumbnail.</p>
+          <div class="flex flex-wrap gap-1 mb-4">
+            <span class="tag">HTML</span><span class="tag">CSS</span><span class="tag">Vanilla JS</span><span class="tag">No Backend</span>
+          </div>
+          <a href="https://github.com/udaycodespace/open-source" target="_blank" class="btn-ghost w-full justify-center cursor-none text-xs">
+            <i class="ri-github-fill"></i> VIEW CONTRIBUTION
+          </a>
+        </div>
+
+        <!-- CTA card -->
+        <div class="reveal os-card bg-neo-black border-4 border-neo-black p-5 shadow-brutal flex flex-col justify-between" style="transition-delay:0.25s">
+          <div>
+            <p class="font-mono text-xs text-acid font-bold uppercase tracking-widest mb-3">My approach</p>
+            <p class="font-mono text-sm text-white leading-relaxed">I don't touch what I'm not assigned. Frontend is my lane — I own it completely, ship clean code, and make sure it doesn't break the backend. That's the kind of contributor every maintainer actually wants.</p>
+          </div>
+          <a href="https://github.com/udaycodespace/open-source" target="_blank" class="btn-primary mt-6 justify-center cursor-none text-xs">
+            <i class="ri-github-fill"></i> ALL 5 PROJECTS
+          </a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── TESTIMONIALS ─── -->
+  <section class="py-16 bg-neo-black border-b-4 border-neo-black overflow-hidden">
+    <div class="max-w-7xl mx-auto px-6 mb-8">
+      <p class="section-label text-gray-500 mb-2">// WHAT PEOPLE SAY</p>
+      <h2 class="big-text text-6xl md:text-8xl text-white">WORD<span class="text-acid">_ON_STREET</span></h2>
+    </div>
+    <div class="marquee-wrap">
+      <div class="marquee-track gap-6 py-2 px-4">
+
+        <div class="flex-shrink-0 w-80 bg-neo-black border-4 border-white/10 p-6 relative text-left hover:border-acid transition-colors" style="white-space: normal;">
+          <div class="absolute top-0 left-0 w-full h-1 bg-acid"></div>
+          <p class="font-mono text-xs text-acid font-bold uppercase mb-1">Kuruva Shashi Kiran</p>
+          <p class="font-mono text-xs text-gray-500 mb-4">Teammate · Credify (Final Year Project)</p>
+          <p class="font-condensed text-lg text-white leading-snug">"Working with Uday on Credify was straightforward — he took ownership of whatever he was building and just got it done. No follow-ups needed."</p>
+          <div class="flex text-acid gap-1 mt-4 text-sm">★★★★★</div>
+        </div>
+
+        <div class="flex-shrink-0 w-80 bg-neo-black border-4 border-white/10 p-6 relative text-left hover:border-neo-blue transition-colors" style="white-space: normal;">
+          <div class="absolute top-0 left-0 w-full h-1 bg-neo-blue"></div>
+          <p class="font-mono text-xs text-neo-blue font-bold uppercase mb-1">Pujari Teja Varshith</p>
+          <p class="font-mono text-xs text-gray-500 mb-4">Teammate · Credify (Final Year Project)</p>
+          <p class="font-condensed text-lg text-white leading-snug">"The frontend he built for Credify was clean and actually made sense for what we were building. He didn't over-engineer it, which was the right call."</p>
+          <div class="flex text-neo-blue gap-1 mt-4 text-sm">★★★★★</div>
+        </div>
+
+        <div class="flex-shrink-0 w-80 bg-neo-black border-4 border-white/10 p-6 relative text-left hover:border-neo-pink transition-colors" style="white-space: normal;">
+          <div class="absolute top-0 left-0 w-full h-1 bg-neo-pink"></div>
+          <p class="font-mono text-xs text-neo-pink font-bold uppercase mb-1">Madhumitha</p>
+          <p class="font-mono text-xs text-gray-500 mb-4">Classmate · GPREC CSE</p>
+          <p class="font-condensed text-lg text-white leading-snug">"Whenever something needed to be built quickly and look good, Uday was the person. He's reliable — you give him a task and it comes back done."</p>
+          <div class="flex text-neo-pink gap-1 mt-4 text-sm">★★★★★</div>
+        </div>
+
+        <div class="flex-shrink-0 w-80 bg-neo-black border-4 border-white/10 p-6 relative text-left hover:border-neo-orange transition-colors" style="white-space: normal;">
+          <div class="absolute top-0 left-0 w-full h-1 bg-neo-orange"></div>
+          <p class="font-mono text-xs text-neo-orange font-bold uppercase mb-1">Open Source Maintainer</p>
+          <p class="font-mono text-xs text-gray-500 mb-4">Predict-Forest-Fire · GitHub</p>
+          <p class="font-condensed text-lg text-white leading-snug">"Frontend contribution with defined scope. Respected the backend, communicated clearly, and delivered exactly what was asked. Good work."</p>
+          <div class="flex text-neo-orange gap-1 mt-4 text-sm">★★★★★</div>
+        </div>
+
+        <div class="flex-shrink-0 w-80 bg-neo-black border-4 border-white/10 p-6 relative text-left hover:border-neo-teal transition-colors" style="white-space: normal;">
+          <div class="absolute top-0 left-0 w-full h-1 bg-neo-teal"></div>
+          <p class="font-mono text-xs text-neo-teal font-bold uppercase mb-1">Open Source Maintainer</p>
+          <p class="font-mono text-xs text-gray-500 mb-4">EduTrack · GitHub (Aditya Chavan)</p>
+          <p class="font-condensed text-lg text-white leading-snug">"Built a minimal, functional, best-looking UI for EduTrack. Professional communication, scope discipline, and good attention to system-level detail."</p>
+          <div class="flex text-neo-teal gap-1 mt-4 text-sm">★★★★★</div>
+        </div>
+
+        <!-- Duplicates for loop -->
+        <div class="flex-shrink-0 w-80 bg-neo-black border-4 border-white/10 p-6 relative text-left hover:border-acid transition-colors" style="white-space: normal;">
+          <div class="absolute top-0 left-0 w-full h-1 bg-acid"></div>
+          <p class="font-mono text-xs text-acid font-bold uppercase mb-1">Kuruva Shashi Kiran</p>
+          <p class="font-mono text-xs text-gray-500 mb-4">Teammate · Credify (Final Year Project)</p>
+          <p class="font-condensed text-lg text-white leading-snug">"Working with Uday on Credify was straightforward — he took ownership of whatever he was building and just got it done. No follow-ups needed."</p>
+          <div class="flex text-acid gap-1 mt-4 text-sm">★★★★★</div>
+        </div>
+        <div class="flex-shrink-0 w-80 bg-neo-black border-4 border-white/10 p-6 relative text-left hover:border-neo-blue transition-colors" style="white-space: normal;">
+          <div class="absolute top-0 left-0 w-full h-1 bg-neo-blue"></div>
+          <p class="font-mono text-xs text-neo-blue font-bold uppercase mb-1">Pujari Teja Varshith</p>
+          <p class="font-mono text-xs text-gray-500 mb-4">Teammate · Credify (Final Year Project)</p>
+          <p class="font-condensed text-lg text-white leading-snug">"The frontend he built for Credify was clean and actually made sense for what we were building. He didn't over-engineer it, which was the right call."</p>
+          <div class="flex text-neo-blue gap-1 mt-4 text-sm">★★★★★</div>
+        </div>
+        <div class="flex-shrink-0 w-80 bg-neo-black border-4 border-white/10 p-6 relative text-left hover:border-neo-pink transition-colors" style="white-space: normal;">
+          <div class="absolute top-0 left-0 w-full h-1 bg-neo-pink"></div>
+          <p class="font-mono text-xs text-neo-pink font-bold uppercase mb-1">Madhumitha</p>
+          <p class="font-mono text-xs text-gray-500 mb-4">Classmate · GPREC CSE</p>
+          <p class="font-condensed text-lg text-white leading-snug">"Whenever something needed to be built quickly and look good, Uday was the person. He's reliable — you give him a task and it comes back done."</p>
+          <div class="flex text-neo-pink gap-1 mt-4 text-sm">★★★★★</div>
+        </div>
+        <div class="flex-shrink-0 w-80 bg-neo-black border-4 border-white/10 p-6 relative text-left hover:border-neo-orange transition-colors" style="white-space: normal;">
+          <div class="absolute top-0 left-0 w-full h-1 bg-neo-orange"></div>
+          <p class="font-mono text-xs text-neo-orange font-bold uppercase mb-1">Open Source Maintainer</p>
+          <p class="font-mono text-xs text-gray-500 mb-4">Predict-Forest-Fire · GitHub</p>
+          <p class="font-condensed text-lg text-white leading-snug">"Frontend contribution with defined scope. Respected the backend, communicated clearly, and delivered exactly what was asked. Good work."</p>
+          <div class="flex text-neo-orange gap-1 mt-4 text-sm">★★★★★</div>
+        </div>
+        <div class="flex-shrink-0 w-80 bg-neo-black border-4 border-white/10 p-6 relative text-left hover:border-neo-teal transition-colors" style="white-space: normal;">
+          <div class="absolute top-0 left-0 w-full h-1 bg-neo-teal"></div>
+          <p class="font-mono text-xs text-neo-teal font-bold uppercase mb-1">Open Source Maintainer</p>
+          <p class="font-mono text-xs text-gray-500 mb-4">EduTrack · GitHub (Aditya Chavan)</p>
+          <p class="font-condensed text-lg text-white leading-snug">"Built a minimal, functional, best-looking UI for EduTrack. Professional communication, scope discipline, and good attention to system-level detail."</p>
+          <div class="flex text-neo-teal gap-1 mt-4 text-sm">★★★★★</div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── GITHUB MATRIX ─── -->
+  <section class="py-14 bg-neo-black border-b-4 border-neo-black px-6 md:px-16">
+    <div class="max-w-7xl mx-auto">
+      <div class="flex items-center gap-3 mb-6 border-b-2 border-white/10 pb-4">
+        <div class="w-8 h-8 bg-acid border-2 border-white/20 flex items-center justify-center">
+          <i class="ri-github-fill text-neo-black"></i>
+        </div>
+        <h3 class="big-text text-4xl text-white">GITHUB<span class="text-acid">_MATRIX</span></h3>
+        <div class="ml-auto flex items-center gap-2">
+          <div class="w-2 h-2 bg-acid rounded-full animate-pulse"></div>
+          <span class="font-mono text-xs text-acid">LIVE · udaycodespace</span>
+        </div>
+      </div>
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-5">
+        <div class="border-2 border-acid/20 p-4 hover:border-acid transition-colors">
+          <div class="font-mono text-[9px] text-acid/60 uppercase mb-1">Public Repos</div>
+          <div id="gh-repos" class="text-white font-display text-3xl">--</div>
+        </div>
+        <div class="border-2 border-acid/20 p-4 hover:border-acid transition-colors">
+          <div class="font-mono text-[9px] text-acid/60 uppercase mb-1">Followers</div>
+          <div id="gh-followers" class="text-white font-display text-3xl">--</div>
+        </div>
+        <div class="border-2 border-acid/20 p-4 hover:border-acid transition-colors">
+          <div class="font-mono text-[9px] text-acid/60 uppercase mb-1">Following</div>
+          <div id="gh-following" class="text-white font-display text-3xl">--</div>
+        </div>
+        <div class="border-2 border-acid/20 p-4 hover:border-acid transition-colors">
+          <div class="font-mono text-[9px] text-acid/60 uppercase mb-1">Member Since</div>
+          <div id="gh-joined" class="text-white font-display text-2xl mt-1 leading-none">--</div>
+        </div>
+      </div>
+      <div class="border-2 border-acid/20 p-3 hover:border-acid transition-colors">
+        <p class="font-mono text-[8px] text-acid/30 uppercase mb-2">Contribution Activity</p>
+        <img src="https://ghchart.rshah.org/CCFF00/udaycodespace" alt="GitHub Contribution Graph for udaycodespace" class="w-full h-auto">
+      </div>
+      <div class="mt-3 flex justify-between items-center">
+        <p class="font-mono text-xs text-gray-600">⚠ Graph reflects reorganized repos — original count was 54+</p>
+        <a href="https://github.com/udaycodespace" target="_blank" class="font-mono text-xs text-acid border border-acid px-4 py-2 hover:bg-acid hover:text-neo-black transition-colors cursor-none font-bold">VIEW_GH →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── COMMUNITY ─── -->
+  <section id="community" class="py-24 px-6 md:px-16">
+    <div class="max-w-5xl mx-auto">
+      <p class="section-label mb-3">// 06 — COMMUNITY & LEADERSHIP</p>
+      <h2 class="big-text text-7xl md:text-9xl mb-14">COMMUNITY</h2>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
+        <div class="reveal bg-neo-black text-white border-4 border-neo-black p-6 shadow-brutal relative">
+          <div class="absolute -top-3 -right-3 bg-acid border-2 border-neo-black px-2 font-mono text-xs font-black text-neo-black">CURRENT</div>
+          <div class="w-10 h-10 bg-acid border-2 border-neo-black flex items-center justify-center mb-4">
+            <i class="ri-google-fill text-neo-black text-lg"></i>
+          </div>
+          <h3 class="font-black text-xl uppercase font-condensed mb-1">Google Gemini Student Ambassador</h3>
+          <p class="font-mono text-acid text-xs font-bold mb-3">GPREC · Dec 2025 – Jun 2026</p>
+          <p class="font-mono text-xs text-gray-400 leading-relaxed">Selected after clearing Phase 1 and Phase 2 evaluation. Contributing backend support, strategic planning, and ideas — remotely until B.Tech wraps up in June 2026.</p>
+        </div>
+
+        <div class="reveal bg-white border-4 border-neo-black p-6 shadow-brutal" style="transition-delay:0.1s">
+          <div class="w-10 h-10 bg-neo-blue border-2 border-neo-black flex items-center justify-center mb-4">
+            <i class="ri-team-fill text-white text-lg"></i>
+          </div>
+          <h3 class="font-black text-xl uppercase font-condensed mb-1">Student Coordinator — CSI</h3>
+          <p class="font-mono text-neo-blue text-xs font-bold mb-3">Computer Society of India · Jun 2024 – Nov 2025</p>
+          <p class="font-mono text-xs text-gray-600 leading-relaxed">Ran student initiatives, organized tech events, workshops, and coding contests. Coordinated with faculty and CSI professionals. Mentored junior members in the chapter.</p>
+        </div>
+
+        <div class="reveal bg-white border-4 border-neo-black p-6 shadow-brutal" style="transition-delay:0.2s">
+          <div class="w-10 h-10 bg-neo-orange border-2 border-neo-black flex items-center justify-center mb-4">
+            <i class="ri-group-fill text-white text-lg"></i>
+          </div>
+          <h3 class="font-black text-xl uppercase font-condensed mb-1">Student Coordinator — CSI</h3>
+          <p class="font-mono text-neo-orange text-xs font-bold mb-3">Computer Society of India · Feb 2023 – May 2024</p>
+          <p class="font-mono text-xs text-gray-600 leading-relaxed">Participated in tech forums, helped plan symposiums and hackathons, and contributed to event organization during the earlier chapter term.</p>
+        </div>
+      </div>
+
+      <!-- Certifications ticker -->
+      <div class="reveal">
+        <p class="section-label mb-4">NOTABLE CERTIFICATIONS</p>
+        <div class="marquee-wrap border-y-2 border-neo-black py-3 bg-white">
+          <div class="marquee-rev">
+            <span class="px-5 border-r border-neo-black/10 whitespace-nowrap font-mono text-xs font-bold">Google Advanced Data Analytics · Coursera</span>
+            <span class="px-5 border-r border-neo-black/10 whitespace-nowrap font-mono text-xs font-bold">Microsoft AI-900</span>
+            <span class="px-5 border-r border-neo-black/10 whitespace-nowrap font-mono text-xs font-bold">NPTEL IoT — Elite 81% · IIT Kharagpur</span>
+            <span class="px-5 border-r border-neo-black/10 whitespace-nowrap font-mono text-xs font-bold">Data Science Foundations · Univ. of London</span>
+            <span class="px-5 border-r border-neo-black/10 whitespace-nowrap font-mono text-xs font-bold">Machine Learning for All · Univ. of London</span>
+            <span class="px-5 border-r border-neo-black/10 whitespace-nowrap font-mono text-xs font-bold">Google Code-in 2018 — 6 Tasks Completed</span>
+            <span class="px-5 border-r border-neo-black/10 whitespace-nowrap font-mono text-xs font-bold">AlgoUniversity Graphs Camp</span>
+            <span class="px-5 border-r border-neo-black/10 whitespace-nowrap font-mono text-xs font-bold">Smart Coder · Smart Interviews</span>
+            <span class="px-5 border-r border-neo-black/10 whitespace-nowrap font-mono text-xs font-bold">Infosys Springboard — IT Foundation (Java · 270hrs)</span>
+            <span class="px-5 border-r border-neo-black/10 whitespace-nowrap font-mono text-xs font-bold">edX — Python Programming</span>
+            <span class="px-5 border-r border-neo-black/10 whitespace-nowrap font-mono text-xs font-bold">Google Advanced Data Analytics · Coursera</span>
+            <span class="px-5 border-r border-neo-black/10 whitespace-nowrap font-mono text-xs font-bold">Microsoft AI-900</span>
+            <span class="px-5 border-r border-neo-black/10 whitespace-nowrap font-mono text-xs font-bold">NPTEL IoT — Elite 81% · IIT Kharagpur</span>
+            <span class="px-5 border-r border-neo-black/10 whitespace-nowrap font-mono text-xs font-bold">Data Science Foundations · Univ. of London</span>
+            <span class="px-5 border-r border-neo-black/10 whitespace-nowrap font-mono text-xs font-bold">Machine Learning for All · Univ. of London</span>
+            <span class="px-5 border-r border-neo-black/10 whitespace-nowrap font-mono text-xs font-bold">Google Code-in 2018 — 6 Tasks Completed</span>
+            <span class="px-5 border-r border-neo-black/10 whitespace-nowrap font-mono text-xs font-bold">AlgoUniversity Graphs Camp</span>
+            <span class="px-5 border-r border-neo-black/10 whitespace-nowrap font-mono text-xs font-bold">Smart Coder · Smart Interviews</span>
+            <span class="px-5 border-r border-neo-black/10 whitespace-nowrap font-mono text-xs font-bold">Infosys Springboard — IT Foundation (Java · 270hrs)</span>
+            <span class="px-5 border-r border-neo-black/10 whitespace-nowrap font-mono text-xs font-bold">edX — Python Programming</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── CONTACT ─── -->
+  <section id="contact" class="py-24 px-6 md:px-16 bg-neo-black border-t-4 border-neo-black">
+    <div class="max-w-5xl mx-auto">
+      <p class="section-label text-gray-500 mb-3">// 07 — CONTACT</p>
+      <h2 class="big-text text-7xl md:text-9xl text-white mb-4">LET'S<br><span class="text-acid">TALK.</span></h2>
+      <p class="font-mono text-sm text-gray-400 mb-12 max-w-lg leading-relaxed">
+        Open to full-time roles, internships, and freelance work. If you have something interesting, just reach out — I reply fast.<br>
+        <span class="text-xs text-gray-600">Freelance portfolio: <a href="https://udayworks.me" target="_blank" class="text-acid underline cursor-none">udayworks.me</a></span>
+      </p>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+        <div class="reveal">
+          <div class="space-y-4 mb-8">
+            <a href="mailto:udaysomapuram@gmail.com" class="flex items-center gap-4 group cursor-none">
+              <div class="w-12 h-12 bg-acid border-2 border-acid flex items-center justify-center flex-shrink-0 group-hover:bg-neo-red group-hover:border-neo-red transition-colors">
+                <i class="ri-mail-line text-neo-black text-xl group-hover:text-white"></i>
+              </div>
+              <span class="font-mono text-sm text-white group-hover:text-acid transition-colors font-bold">udaysomapuram@gmail.com</span>
+            </a>
+            <a href="https://linkedin.com/in/somapuramuday" target="_blank" class="flex items-center gap-4 group cursor-none">
+              <div class="w-12 h-12 bg-neo-blue border-2 border-neo-blue flex items-center justify-center flex-shrink-0">
+                <i class="ri-linkedin-fill text-white text-xl"></i>
+              </div>
+              <span class="font-mono text-sm text-white group-hover:text-neo-blue transition-colors font-bold">linkedin/somapuramuday</span>
+            </a>
+            <a href="https://github.com/udaycodespace" target="_blank" class="flex items-center gap-4 group cursor-none">
+              <div class="w-12 h-12 bg-white border-2 border-white flex items-center justify-center flex-shrink-0">
+                <i class="ri-github-fill text-neo-black text-xl"></i>
+              </div>
+              <span class="font-mono text-sm text-white group-hover:text-white transition-colors font-bold">github/udaycodespace</span>
+            </a>
+            <a href="https://github.com/uday-works" target="_blank" class="flex items-center gap-4 group cursor-none">
+              <div class="w-12 h-12 bg-gray-700 border-2 border-gray-700 flex items-center justify-center flex-shrink-0">
+                <i class="ri-github-fill text-white text-xl"></i>
+              </div>
+              <span class="font-mono text-sm text-white group-hover:text-gray-300 transition-colors font-bold">github/uday-works</span>
+            </a>
+            <a href="https://udayworks.me" target="_blank" class="flex items-center gap-4 group cursor-none">
+              <div class="w-12 h-12 bg-neo-orange border-2 border-neo-orange flex items-center justify-center flex-shrink-0">
+                <i class="ri-briefcase-line text-white text-xl"></i>
+              </div>
+              <span class="font-mono text-sm text-white group-hover:text-neo-orange transition-colors font-bold">udayworks.me — Freelance Work</span>
+            </a>
+          </div>
+          <div class="bg-white/5 border-2 border-white/10 p-4 font-mono text-xs text-gray-400 leading-relaxed">
+            <p class="text-acid font-bold mb-1">📍 Kurnool, Andhra Pradesh, India</p>
+            <p>B.Tech CSE · GPREC (Autonomous) · Affiliated JNTUA</p>
+            <p>Graduating June 2026 · Roll No: 229X1A2856</p>
+          </div>
+        </div>
+
+        <div class="reveal relative" style="transition-delay:0.1s">
+          <div class="bg-neo-bg border-4 border-acid p-6 shadow-brutal-acid relative">
+            <div class="absolute -top-3 -left-3 bg-acid border-2 border-neo-black px-3 py-0.5 font-mono text-xs font-black text-neo-black">START_PROJECT.exe</div>
+            <div class="space-y-4">
+              <div>
+                <label class="font-mono text-xs font-bold uppercase text-neo-black block mb-1">Your Name</label>
+                <input type="text" id="f-name" placeholder="Name / Company">
+              </div>
+              <div>
+                <label class="font-mono text-xs font-bold uppercase text-neo-black block mb-1">Email</label>
+                <input type="email" id="f-email" placeholder="your@email.com">
+              </div>
+              <div>
+                <label class="font-mono text-xs font-bold uppercase text-neo-black block mb-1">What do you need?</label>
+                <textarea id="f-msg" rows="4" placeholder="Tell me about the project..." class="resize-none cursor-none"></textarea>
+              </div>
+              <button id="f-submit" class="w-full bg-neo-black text-acid font-mono font-black text-sm py-4 border-2 border-neo-black shadow-brutal hover:translate-x-1 hover:translate-y-1 hover:shadow-none transition-all cursor-none">
+                SEND MESSAGE →
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── FOOTER ─── -->
+  <footer class="bg-neo-black text-white py-12 px-6 md:px-16 border-t-8 border-acid font-mono relative overflow-hidden">
+    <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8 relative z-10">
+      <div>
+        <h2 class="big-text text-5xl mb-3">UDAY<span class="text-acid">.</span></h2>
+        <p class="text-gray-400 text-xs leading-relaxed max-w-xs">Frontend-core. Knows backend. Speaks data. Ships end to end.</p>
+        <p class="text-gray-600 text-xs mt-3">udaysomapuram@gmail.com</p>
+      </div>
+      <div>
+        <h3 class="text-xs font-bold text-acid mb-4 border-b border-gray-800 pb-2 uppercase tracking-widest">SITEMAP</h3>
+        <ul class="space-y-2 text-gray-400 text-xs">
+          <li><a href="#about"      class="hover:text-acid transition-colors cursor-none">/ABOUT</a></li>
+          <li><a href="#skills"     class="hover:text-acid transition-colors cursor-none">/STACK</a></li>
+          <li><a href="#experience" class="hover:text-acid transition-colors cursor-none">/LOGS</a></li>
+          <li><a href="#projects"   class="hover:text-acid transition-colors cursor-none">/WORK</a></li>
+          <li><a href="#opensource" class="hover:text-acid transition-colors cursor-none">/OPEN-SRC</a></li>
+          <li><a href="#community"  class="hover:text-acid transition-colors cursor-none">/COMMUNITY</a></li>
+          <li><a href="https://udayworks.me" target="_blank" class="hover:text-neo-orange transition-colors cursor-none">FREELANCE →</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3 class="text-xs font-bold text-acid mb-4 border-b border-gray-800 pb-2 uppercase tracking-widest">LINKS</h3>
+        <div class="flex gap-4 mb-4">
+          <a href="https://github.com/udaycodespace" target="_blank" class="text-2xl hover:text-acid transition-colors cursor-none"><i class="ri-github-fill"></i></a>
+          <a href="https://linkedin.com/in/somapuramuday" target="_blank" class="text-2xl hover:text-neo-blue transition-colors cursor-none"><i class="ri-linkedin-fill"></i></a>
+          <a href="mailto:udaysomapuram@gmail.com" class="text-2xl hover:text-neo-red transition-colors cursor-none"><i class="ri-mail-fill"></i></a>
+          <a href="https://udayworks.me" target="_blank" class="text-2xl hover:text-neo-orange transition-colors cursor-none"><i class="ri-briefcase-fill"></i></a>
+        </div>
+        <p class="text-gray-600 text-xs mt-6">© 2026 Somapuram Uday<br>Built with HTML · CSS · JS</p>
+      </div>
+    </div>
+    <div class="absolute bottom-0 left-0 w-full big-text text-[22vw] text-white opacity-[0.02] leading-none select-none pointer-events-none text-center">UDAY</div>
+  </footer>
+
+  <script>
+    // Custom cursor
+    const cursor = document.getElementById('cursor');
+    document.addEventListener('mousemove', e => {
+      cursor.style.left = e.clientX + 'px';
+      cursor.style.top = e.clientY + 'px';
+    });
+    document.querySelectorAll('a, button').forEach(el => {
+      el.addEventListener('mouseenter', () => cursor.classList.add('link'));
+      el.addEventListener('mouseleave', () => cursor.classList.remove('link'));
+    });
+    document.querySelectorAll('.skill-cell, .project-card, .os-card').forEach(el => {
+      el.addEventListener('mouseenter', () => cursor.classList.add('big'));
+      el.addEventListener('mouseleave', () => cursor.classList.remove('big'));
+    });
+
+    // Progress bar
+    window.addEventListener('scroll', () => {
+      const pct = (window.scrollY / (document.documentElement.scrollHeight - window.innerHeight)) * 100;
+      document.getElementById('progress-bar').style.width = pct + '%';
+    });
+
+    // Scroll reveal
+    const revealObs = new IntersectionObserver(entries => {
+      entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('active'); });
+    }, { threshold: 0.08 });
+    document.querySelectorAll('.reveal').forEach(el => revealObs.observe(el));
+
+    // Mobile nav
+    document.getElementById('mob-btn').addEventListener('click', () => {
+      document.getElementById('mob-menu').classList.toggle('hidden');
+    });
+    document.querySelectorAll('#mob-menu a').forEach(a => {
+      a.addEventListener('click', () => document.getElementById('mob-menu').classList.add('hidden'));
+    });
+
+    // GitHub live stats
+    async function fetchGH() {
+      try {
+        const r = await fetch('https://api.github.com/users/udaycodespace');
+        const d = await r.json();
+        document.getElementById('gh-repos').textContent = d.public_repos ?? '--';
+        document.getElementById('gh-followers').textContent = d.followers ?? '--';
+        document.getElementById('gh-following').textContent = d.following ?? '--';
+        if (d.created_at) {
+          document.getElementById('gh-joined').textContent = new Date(d.created_at).toLocaleDateString('en-US', { year: 'numeric', month: 'short' });
+        }
+      } catch(e) { console.warn('GitHub fetch failed'); }
+    }
+    fetchGH();
+
+    // Contact form
+    document.getElementById('f-submit').addEventListener('click', () => {
+      const name = document.getElementById('f-name').value.trim();
+      const email = document.getElementById('f-email').value.trim();
+      const msg = document.getElementById('f-msg').value.trim();
+      if (!name || !email || !msg) {
+        document.getElementById('f-submit').textContent = 'FILL ALL FIELDS FIRST';
+        document.getElementById('f-submit').style.background = '#FF2A2A';
+        setTimeout(() => {
+          document.getElementById('f-submit').textContent = 'SEND MESSAGE →';
+          document.getElementById('f-submit').style.background = '';
+        }, 2000);
+        return;
+      }
+      const mailto = `mailto:udaysomapuram@gmail.com?subject=Portfolio Enquiry from ${encodeURIComponent(name)}&body=${encodeURIComponent(msg + '\n\nFrom: ' + email)}`;
+      window.location.href = mailto;
+      document.getElementById('f-submit').textContent = '✓ OPENING YOUR MAIL APP';
+      document.getElementById('f-submit').style.background = '#CCFF00';
+      document.getElementById('f-submit').style.color = '#0a0a0a';
+    });
+  </script>
+</body>
+</html>
