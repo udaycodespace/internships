@@ -41,4 +41,4 @@ Enter wake-up time (e.g. 4.30, 7.00, 9.15): 6.45
 
 ## Submission
 
-Implement the solution in **Python** using a Jupyter Notebook (`assignment.ipynb`).
+Implement the solution in **Python** using a Jupyter Notebook (`solution.ipynb`).
