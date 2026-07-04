@@ -8,30 +8,35 @@
 
 ---
 
-## Internship Journey
+## Learning Journey
 
 ```mermaid
 flowchart LR
 
-A[Assignment 01<br/>College Routine Planner]
---> B[Assignment 02<br/>Data Extraction from Mixed List]
---> C[Assignment 03<br/>DataFrame Manipulations]
---> D[Project<br/>User Behavior Analysis using EDA]
---> E([Internship Completed])
+A["Python Fundamentals<br/>Variables · Data Types · Operators"]
+--> B["Core Python<br/>Conditions · Loops · Functions · Collections"]
+--> C["Assignment 01<br/>College Routine Planner"]
+--> D["Assignment 02<br/>Data Extraction from Mixed List"]
+--> E["Assignment 03<br/>DataFrame Manipulations with pandas"]
+--> F["Artificial Intelligence<br/>Theory & Core Concepts"]
+--> G["Data Science<br/>Exploratory Data Analysis (EDA)"]
+--> H["Project<br/>User Behavior Analysis"]
+--> I["Machine Learning<br/>Theory & Fundamentals"]
+--> J(["Internship Completed"])
 ```
 
 > [!NOTE]
-> This repository preserves my work completed during the **AI/ML SIT2025 Internship** at **The Web Blinders**.
+> During the **AI/ML SIT2025 Internship**, I completed the practical assignments and project contained in this repository while learning the theoretical foundations of **Artificial Intelligence**, **Machine Learning**, and **Data Science**.
 >
 > * **Assignments** → [`assignments/`](assignments/)
-> * **EDA Project** → [`projects/`](projects/)
+> * **Project** → [`projects/`](projects/)
 
 ## Certificate
 
 <p align="center">
-  <a href="artifacts/certificates/internship-certificate.pdf">
+  <a href="../../artifacts/certificates/web-blinders.pdf">
     <img
-      src="artifacts/certificates/internship-certificate.webp"
+      src="../../artifacts/previews/web-blinders.webp"
       alt="AI/ML SIT2025 Internship Certificate"
       width="900"
     />
