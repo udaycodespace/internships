@@ -14,17 +14,12 @@ The assignment focuses on implementing a **College Routine Planner** using Pytho
 | ------------------- | -------------------------------------------------- |
 | 📄 `QUESTION.md`    | Assignment statement, objectives, and requirements |
 | 📓 `solution.ipynb` | Complete Jupyter Notebook solution                 |
-| 🖼 `preview.webp`   | Preview of the notebook                            |
 | 🖼 `output.webp`    | Sample program output                              |
 
 ## Quick Navigation
 
 * 📄 **Assignment:** [QUESTION.md](QUESTION.md)
 * 📓 **Solution:** [solution.ipynb](solution.ipynb)
-
-## Preview
-
-![Notebook Preview](preview.webp)
 
 ## Sample Output
 
