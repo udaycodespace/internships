@@ -48,11 +48,15 @@ flowchart LR
 <p align="center">
   <a href="https://udaycodespace.github.io/portfolio/">
     <img
-      src="https://github.com/udaycodespace/internships/blob/main/artifacts/previews/edunet-frontend-webdevelopment.webp?raw=true"
+      src="preview.webp"
       alt="Latest Portfolio Preview"
       width="900"
     />
   </a>
+</p>
+
+<p align="center">
+Click the preview to explore the latest version of the project.
 </p>
 
 <p align="center">
