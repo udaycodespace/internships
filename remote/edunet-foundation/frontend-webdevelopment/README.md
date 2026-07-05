@@ -8,29 +8,21 @@
   <img src="https://img.shields.io/badge/Platform-AICTE%20%7C%20IBM%20SkillsBuild-F59E0B?style=for-the-badge" alt="Platform" />
 </p>
 
----
-
 ## About
 
 This repository contains the work completed during my **6-week Front End Web Development Internship** offered by **Edunet Foundation** through the **AICTE Internship Portal** in collaboration with **IBM SkillsBuild**.
 
-The internship provided hands-on experience in modern front-end development through practical assignments, project-based learning, and real-world implementation of web technologies.
+The internship provided hands-on experience in modern front-end development through practical assignments and project-based learning using HTML, CSS, JavaScript, GSAP, Git, and GitHub.
 
----
-
-## What I Learned
+## Technologies
 
 - HTML5
 - CSS3
 - JavaScript (ES6)
+- GSAP
 - Responsive Web Design
-- GSAP Animations
 - Git
 - GitHub
-- Browser Developer Tools
-- Project Deployment
-
----
 
 ## Learning Journey
 
@@ -51,14 +43,12 @@ flowchart LR
 >
 > **Looking for the latest version?** → **https://udaycodespace.github.io/portfolio/**
 
----
-
 ## Latest Project Preview
 
 <p align="center">
   <a href="https://udaycodespace.github.io/portfolio/">
     <img
-      src="./preview.webp"
+      src="https://github.com/udaycodespace/internships/blob/main/artifacts/previews/edunet-frontend-webdevelopment.webp?raw=true"
       alt="Latest Portfolio Preview"
       width="900"
     />
@@ -69,14 +59,12 @@ flowchart LR
 Click the preview to explore the latest version of the project.
 </p>
 
----
-
 ## Certificate
 
 <p align="center">
-  <a href="../../artifacts/certificates/edunet-frontend-webdevelopment.pdf">
+  <a href="https://github.com/udaycodespace/internships/blob/main/artifacts/certificates/edunet-frontend-webdevelopment.pdf">
     <img
-      src="../../artifacts/previews/edunet-frontend-webdevelopment.webp"
+      src="https://github.com/udaycodespace/internships/blob/main/artifacts/previews/edunet-frontend-webdevelopment.webp?raw=true"
       alt="Edunet Foundation Front End Web Development Internship Certificate"
       width="900"
     />
