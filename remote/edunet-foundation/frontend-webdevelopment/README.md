@@ -1,7 +1,5 @@
 # Edunet Foundation
 
-## Front End Web Development Internship
-
 <p align="center">
   <img src="https://img.shields.io/badge/Duration-6%20Weeks-2563EB?style=for-the-badge" alt="Duration" />
   <img src="https://img.shields.io/badge/Domain-Front%20End%20Web%20Development-16A34A?style=for-the-badge" alt="Domain" />
@@ -12,28 +10,35 @@
 
 This repository contains the work completed during my **6-week Front End Web Development Internship** offered by **Edunet Foundation** through the **AICTE Internship Portal** in collaboration with **IBM SkillsBuild**.
 
-The internship provided hands-on experience in modern front-end development through practical assignments and project-based learning using HTML, CSS, JavaScript, GSAP, Git, and GitHub.
+During the internship, I strengthened my front-end fundamentals, practiced modern JavaScript, explored GSAP animations, and built responsive web projects while following Git and GitHub workflows.
+
+## Timeline
+
+```text
+21 Aug 2025                                            30 Sep 2025
+Internship Started 🚀────────────────────────Internship Completed 🎉
+             Front End Web Development • 6 Weeks
+```
 
 ## Technologies
 
-- HTML5
-- CSS3
-- JavaScript (ES6)
-- GSAP
-- Responsive Web Design
-- Git
-- GitHub
+* HTML5
+* CSS3
+* JavaScript (ES6)
+* GSAP
+* Responsive Web Design
+* Git
+* GitHub
 
 ## Learning Journey
 
 ```mermaid
 flowchart LR
-    A["HTML"] --> B["CSS"]
-    B --> C["JavaScript"]
-    C --> D["Responsive Design"]
-    D --> E["GSAP"]
-    E --> F["Git & GitHub"]
-    F --> G["Deployment"]
+    A["HTML & CSS Revision"] --> B["JavaScript Practice"]
+    B --> C["Responsive UI"]
+    C --> D["GSAP"]
+    D --> E["Project Development"]
+    E --> F["Deployment"]
 ```
 
 > [!TIP]
