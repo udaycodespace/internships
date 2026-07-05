@@ -59,10 +59,6 @@ flowchart LR
 Click the preview to explore the latest version of the project.
 </p>
 
-<p align="center">
-Click the preview to explore the latest version of the project.
-</p>
-
 ## Certificate
 
 <p align="center">
