@@ -44,9 +44,9 @@ timeline
 ## Certificate
 
 <p align="center">
-  <a href="../../artifacts/certificates/edunet-ai-azure.pdf">
+  <a href="../../../artifacts/certificates/edunet-ai-azure.pdf">
     <img
-      src="../../artifacts/previews/edunet-ai-azure.webp"
+      src="../../../artifacts/previews/edunet-ai-azure.webp"
       alt="Edunet AI + Azure Virtual Internship Certificate"
       width="900"
     />
@@ -54,5 +54,5 @@ timeline
 </p>
 
 <p align="center">
-Click the certificate to view the original PDF.
+  Click the certificate to view the original PDF.
 </p>
