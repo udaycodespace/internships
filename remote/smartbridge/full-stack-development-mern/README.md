@@ -1,4 +1,4 @@
-# APSCHE x SmartBridge Full Stack Development (MERN) Internship
+# SmartBridge Full Stack Development (MERN) Internship
 
 <p align="center">
   <img src="https://img.shields.io/badge/Duration-240%20Hours-2563EB?style=for-the-badge" alt="Duration" />
@@ -35,10 +35,10 @@ gantt
 ## Certificate
 
 <p align="center">
-  <a href="../../artifacts/certificates/apsche-smartbridge-full-stack-development-mern.pdf">
+  <a href="../../../artifacts/certificates/full-stack-development-mern.pdf">
     <img
-      src="../../artifacts/previews/apsche-smartbridge-full-stack-development-mern.webp"
-      alt="APSCHE x SmartBridge Full Stack Development (MERN) Internship Certificate"
+      src="../../../artifacts/previews/full-stack-development-mern.webp"
+      alt="SmartBridge Full Stack Development (MERN) Internship Certificate"
       width="900"
     />
   </a>
