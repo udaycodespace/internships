@@ -1,0 +1,44 @@
+# Node
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Salesforce CLI
+.sfdx/
+.sf/
+
+# Local Auth Files
+*.key
+*.crt
+
+# VS Code (keep shared settings if needed)
+.vscode/*
+!.vscode/extensions.json
+!.vscode/settings.json
+!.vscode/launch.json
+
+# Logs
+logs/
+*.log
+
+# OS Files
+.DS_Store
+Thumbs.db
+
+# Test Results
+coverage/
+
+# Jest
+test-results/
+
+# Temporary Files
+*.tmp
+*.temp
+
+# Environment Variables
+.env
+.env.*
+
+# Package Lock (optional)
+# package-lock.json
