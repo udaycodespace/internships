@@ -9,47 +9,64 @@
   <img src="https://img.shields.io/badge/Domain-Salesforce-16A34A?style=for-the-badge" />
 </p>
 
-## Learning journey
+---
+
+## Program Timeline
 
 ```mermaid
 flowchart LR
 
-A["Complete Phase 1<br/>Trailhead Modules"]
---> B["Phase 1 Assessment<br/>50 Questions"]
+A["Phase 1<br/>Trailhead Modules"]
+--> B["50-Question Assessment"]
 --> C["Qualified for Phase 2"]
---> D["Salesforce Carbon Footprint Tracker"]
---> E["Phase 2 Learning"]
---> F["~40% Trailhead Modules"]
+--> D["Carbon Footprint Tracker"]
+--> E["Advanced Trailhead Learning"]
+--> F["~40% Modules Completed"]
 --> G["Semester Exams"]
 --> H["Learning Continued Through Projects"]
 ```
 
-## About
+## Highlights
 
-This repository contains my work from the **SmartBridge Salesforce Internship** conducted in collaboration with **TCS**.
+✔ Completed all required **Phase 1 Trailhead modules**
 
-The internship followed a two-phase learning path.
+✔ Cleared the **50-question Salesforce assessment**
 
-To become eligible for **Phase 2**, I first completed the required Trailhead modules and cleared a **50-question Salesforce assessment**. After qualifying, I built the **Salesforce Carbon Footprint Tracker**, where I applied what I had learned by developing a complete Salesforce application.
+✔ Qualified for **Phase 2**
 
-Phase 2 focused on advanced Trailhead modules and another Salesforce project. I completed the assigned project and around **40% of the required modules** before my university semester examinations overlapped with the internship schedule. Once the exams concluded, the internship deadline had already passed.
+✔ Built the **Salesforce Carbon Footprint Tracker**
 
-Although I didn't complete every Trailhead module, the internship achieved what I had set out to learn. It gave me practical experience with Salesforce development and a solid understanding of the platform through building, experimenting, and solving real problems instead of only earning badges.
+✔ Completed the assigned **Phase 2 project**
 
-## Skills gained
+✔ Completed **~40%** of the Phase 2 Trailhead learning path
 
-- Salesforce CRM Fundamentals
+---
+
+## About the Internship
+
+The SmartBridge Salesforce Internship, conducted in collaboration with **TCS**, followed a two-phase learning program.
+
+Phase 1 focused on Salesforce fundamentals through Trailhead modules, followed by a qualifying assessment.
+
+After advancing to Phase 2, I built a complete Salesforce application while continuing the advanced learning path. Although I couldn't finish every Trailhead module because the remaining schedule overlapped with my university semester examinations, I completed the project and gained practical Salesforce development experience through hands-on implementation.
+
+---
+
+## Technologies & Concepts
+
 - Apex
 - Lightning Web Components (LWC)
 - Salesforce Flows
 - Custom Objects & Relationships
-- Reports & Dashboards
-- Profiles, Roles & Permissions
 - SOQL
 - Validation Rules
-- Application Development Lifecycle
+- Reports & Dashboards
+- Profiles, Roles & Permissions
+- Salesforce CRM Fundamentals
 
-## Repository
+---
+
+## Repository Structure
 
 ```text
 .
@@ -58,11 +75,11 @@ Although I didn't complete every Trailhead module, the internship achieved what 
 └── README.md
 ```
 
+---
+
 ## Trailblazer Profile
 
-My Trailblazer profile documents the badges and modules completed during the internship.
+🔗 https://www.salesforce.com/trailblazer/somapuram-uday
 
-🔗 **https://www.salesforce.com/trailblazer/somapuram-uday**
-
-> [!NOTE]
-> This repository represents my Salesforce learning journey. While I did not complete the entire Phase 2 learning path, the knowledge and projects gained during the internship are accurately reflected here and on my Trailblazer profile.
+> [!TIP]
+> This repository showcases the practical work completed during the SmartBridge × TCS Salesforce Internship. While the complete Phase 2 Trailhead path wasn't finished due to semester examinations, the projects and Trailblazer profile accurately reflect the Salesforce skills gained throughout the program.
