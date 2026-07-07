@@ -9,17 +9,25 @@
 ## Learning Journey
 
 ```mermaid
-flowchart LR
+graph TD
 
-A["Business Intelligence<br/>Concepts & Analytics"]
---> B["Tableau Fundamentals<br/>Data Sources & Interface"]
---> C["Data Preparation<br/>Cleaning & Transformation"]
---> D["Data Visualization<br/>Charts & Visual Analytics"]
---> E["Advanced Tableau<br/>Calculations · Filters · Parameters"]
---> F["Interactive Dashboards<br/>Stories & Actions"]
---> G["Assignments<br/>Hands-on Practice"]
---> H["Project<br/>Cosmetic Insights"]
---> I(["Internship Completed"])
+A[Business Intelligence]
+A --> B[Tableau Fundamentals]
+
+B --> C[Connecting Data Sources]
+B --> D[Data Preparation]
+
+D --> E[Data Visualization]
+C --> E
+
+E --> F[Advanced Tableau]
+F --> G[Dashboards & Stories]
+
+G --> H[Assignments]
+G --> I[Capstone Project]
+
+H --> J([Internship Completed])
+I --> J
 ```
 
 > [!NOTE]
@@ -29,7 +37,7 @@ A["Business Intelligence<br/>Concepts & Analytics"]
 > - **Project** → [`project/`](project/)
 
 > [!TIP]
-> Looking for more dashboards beyond this internship?
+> Looking for more Tableau dashboards beyond this internship?
 >
 > **Explore my Tableau Public portfolio:**  
 > <https://public.tableau.com/app/profile/somapuram.uday/vizzes>
@@ -63,26 +71,27 @@ A["Business Intelligence<br/>Concepts & Analytics"]
 └── README.md
 ```
 
-## Skills Gained
+## Knowledge Distribution
 
-- Business Intelligence
-- Tableau Desktop
-- Tableau Public
-- Data Preparation
-- Data Visualization
-- Dashboard Design
-- Storytelling with Data
-- Calculated Fields
-- Filters & Parameters
-- Interactive Dashboards
-- Business Analytics
+```mermaid
+pie showData
+title Topics Covered During the Internship
+
+"Business Intelligence" : 10
+"Tableau Fundamentals" : 15
+"Data Preparation" : 10
+"Data Visualization" : 20
+"Advanced Tableau" : 15
+"Dashboards & Stories" : 15
+"Assignments & Project" : 15
+```
 
 ## Certificate
 
 <p align="center">
-  <a href="../../artifacts/certificates/smartbridge-data-analytics-tableau.pdf">
+  <a href="../../../artifacts/certificates/smartbridge-data-analytics-tableau.pdf">
     <img
-      src="../../artifacts/previews/smartbridge-data-analytics-tableau.webp"
+      src="../../../artifacts/previews/smartbridge-data-analytics-tableau.webp"
       alt="Data Analytics with Tableau Internship Certificate"
       width="900"
     />
@@ -90,5 +99,5 @@ A["Business Intelligence<br/>Concepts & Analytics"]
 </p>
 
 <p align="center">
-Click the certificate to view the original PDF.
+Click the certificate preview to open the original PDF.
 </p>
