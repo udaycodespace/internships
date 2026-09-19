@@ -29,7 +29,7 @@ A["Python Fundamentals<br/>Variables · Data Types · Operators"]
 > During the **AI/ML SIT2025 Internship**, I completed the practical assignments and project contained in this repository while learning the theoretical foundations of **Artificial Intelligence**, **Machine Learning**, and **Data Science**.
 >
 > * **Assignments** → [`assignments/`](assignments/)
-> * **Project** → [`projects/`](projects/)
+> * **Project** → [`project/`](project/)
 
 ## Certificate
 
